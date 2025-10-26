@@ -15,10 +15,12 @@ export const metadata: Metadata = {
   generator: "v0.app",
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/tab-icon.svg", type: "image/svg+xml" },
+      { url: "/tab-photo.png", type: "image/png", sizes: "512x512" },
+      { url: "/tab-photo.png", type: "image/png", sizes: "192x192" },
     ],
-    shortcut: [{ url: "/favicon.svg" }],
+    shortcut: [{ url: "/tab-icon.svg" }],
+    apple: [{ url: "/tab-photo.png", sizes: "180x180", type: "image/png" }],
   },
 }
 
@@ -30,9 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/tab-icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/tab-photo.png" type="image/png" sizes="512x512" />
+        <link rel="icon" href="/tab-photo.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/tab-photo.png" sizes="180x180" />
       </head>
       <body className={`${inter.className} ${signature.variable} font-sans antialiased bg-white text-black`}>
         {children}
