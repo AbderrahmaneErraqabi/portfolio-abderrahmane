@@ -6,8 +6,11 @@ export function About() {
   return (
     <SectionWrapper id="about" className="py-20" style={{ background: 'var(--section-alt)' }}>
       <div className="container mx-auto px-4">
-        <h2 className="mb-12 text-center text-4xl font-bold text-[var(--electric-blue)]">About Me</h2>
-        <Card className="mx-auto max-w-4xl border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl shadow-[0_30px_85px_-60px_rgba(94,177,255,0.8)]">
+        <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-[linear-gradient(120deg,#0f172a,#1d4ed8_55%,#1e293b)] drop-shadow-[0_8px_18px_rgba(29,78,216,0.22)]">
+          About Me
+        </h2>
+        <div className="mx-auto mt-3 mb-8 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
+        <Card className="futuristic-card mx-auto max-w-4xl border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl shadow-[0_30px_85px_-60px_rgba(94,177,255,0.8)]">
           <CardContent className="p-8">
             <div className="flex flex-col items-center gap-10 md:flex-row">
               <div className="relative h-[420px] w-full overflow-hidden rounded-xl ring-2 ring-primary/30 transition-transform duration-500 hover:scale-[1.03] md:w-[300px]">

@@ -10,7 +10,7 @@ const skillCategories = [
   {
     title: "Tools & Frameworks",
     icon: Wrench,
-    skills: ["KiCad", "AutoCAD Electrical", "Git", "VS Code", "Next.js", "Tailwind CSS", "React"],
+    skills: ["KiCad", "AutoCAD Electrical", "Git", "VS Code", "React", "Next.js", "Tailwind CSS", "Arduino", "STM32"],
   },
   {
     title: "Engineering & Concepts",
@@ -35,7 +35,7 @@ export function Skills() {
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className="animate-fade-in-up border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_65px_-50px_rgba(94,177,255,0.85)]"
+              className="futuristic-card animate-fade-in-up border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_65px_-50px_rgba(94,177,255,0.85)]"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6">

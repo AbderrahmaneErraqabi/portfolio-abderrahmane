@@ -22,9 +22,9 @@ export default function Footer() {
   }, [])
 
   // NOTE: replace the hrefs below with your real profile URLs
-  const githubUrl = "https://github.com/abderrahmane"
-  const linkedinUrl = "https://www.linkedin.com/in/abderrahmane"
-  const twitterUrl = "https://twitter.com/abderrahmane"
+  const githubUrl = "https://github.com/AbderrahmaneErraqabi"
+  const linkedinUrl = "https://www.linkedin.com/in/abderrahmane-er-raqabi-7381b0354/"
+  const twitterUrl = "https://x.com/abderrtrades"
 
   return (
     <footer
@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
 
         <p>© {new Date().getFullYear()} Abderrahmane Er‑Raqabi. All rights reserved.</p>
-        <p className="mt-2">Built with Next.js · Designed for smooth scrolling</p>
+        
       </div>
     </footer>
   )

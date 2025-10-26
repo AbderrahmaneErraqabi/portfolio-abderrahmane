@@ -9,15 +9,15 @@ const projects = [
       "Designed and implemented wiring harness for the Esteban Solar Car team, integrating embedded systems for optimal power distribution.",
     tags: ["Embedded Systems", "KiCad", "Power Electronics"],
     github: "#",
-    demo: "#",
+    demo: "https://esteban.polymtl.ca",
   },
   {
     title: "Mini-SPICE DC Circuit Solver",
     description:
       "Built a C++ circuit analysis tool that solves DC circuits using nodal analysis and matrix operations.",
     tags: ["C++", "Circuit Analysis", "Algorithms"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/AbderrahmaneErraqabi/mini-spice-dc",
+    demo: "https://github.com/AbderrahmaneErraqabi/mini-spice-dc",
   },
   {
     title: "Automation System with Flip-Flops",
@@ -27,11 +27,11 @@ const projects = [
     demo: "#",
   },
   {
-    title: "Smart Connector Database",
-    description: "Python-based database system with Git integration for managing electrical connectors and components.",
-    tags: ["Python", "Git", "Database"],
-    github: "#",
-    demo: "#",
+    title: "Image Processing & Pixel Manipulation Tool",
+    description: "Developed a C++ image processor that performs grayscale conversion, brightness adjustment, and pixel filtering.",
+    tags: ["C++", "Image Processing", "Algorithms"],
+    github: "https://github.com/AbderrahmaneErraqabi/Image-processor",
+    demo: "https://github.com/AbderrahmaneErraqabi/Image-processor",
   },
   {
     title: "Personal Investing Dashboard",
@@ -57,7 +57,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="group border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_65px_-45px_rgba(94,177,255,0.85)]"
+              className="futuristic-card group border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_65px_-45px_rgba(94,177,255,0.85)]"
             >
               <CardHeader>
                 <CardTitle className="transition-colors group-hover:text-primary">{project.title}</CardTitle>

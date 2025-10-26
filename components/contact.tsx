@@ -13,13 +13,13 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/abderrahmane-er-raqabi-7381b0354/",
     color: "hover:border-primary/60 hover:bg-primary/10",
   },
   {
     name: "GitHub",
     icon: Github,
-    href: "https://github.com",
+    href: "https://github.com/AbderrahmaneErraqabi",
     color: "hover:border-primary/60 hover:bg-primary/10",
   },
   {
@@ -31,7 +31,7 @@ const socialLinks = [
   {
     name: "Email",
     icon: Mail,
-    href: "mailto:contact@example.com",
+    href: "mailto:abderrahmane.erraqabi@gmail.com",
     color: "hover:border-primary/60 hover:bg-primary/10",
   },
 ]
@@ -44,11 +44,42 @@ export function Contact() {
     email: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+    setIsSubmitting(true)
+    setFeedback(null)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}))
+        throw new Error(data.error ?? "Failed to send message.")
+      }
+
+      setFeedback({
+        type: "success",
+        message: "Message sent! I’ll get back to you soon.",
+      })
+      setFormData({ name: "", email: "", message: "" })
+    } catch (error) {
+      console.error("Contact form submission failed:", error)
+      setFeedback({
+        type: "error",
+        message: "Hmm, something went wrong. Please try again in a moment.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -61,17 +92,20 @@ export function Contact() {
   return (
     <SectionWrapper id="contact" className="py-20" style={{ background: "var(--section-alt)" }}>
       <div className="container mx-auto px-4">
-        <h2 className="mb-4 text-center text-4xl font-bold text-[var(--electric-blue)]">Get In Touch</h2>
+        <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-[linear-gradient(120deg,#0f172a,#1d4ed8_55%,#1e293b)] drop-shadow-[0_8px_18px_rgba(29,78,216,0.22)]">
+          Get In Touch
+        </h2>
+        <div className="mx-auto mt-3 mb-10 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
         <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
-          Let's collaborate and innovate together.
+          Let&apos;s collaborate and innovate together.
         </p>
 
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
           {/* Contact Form */}
-          <Card className="border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl shadow-[0_25px_65px_-55px_rgba(94,177,255,0.85)]">
+          <Card className="futuristic-card border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl shadow-[0_25px_65px_-55px_rgba(94,177,255,0.85)]">
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
+                <div className="field-wrapper">
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Name
                   </label>
@@ -81,11 +115,11 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className="border-[var(--section-border)] bg-[rgba(12,20,38,0.65)] focus-visible:border-primary/60 focus-visible:ring-primary/30"
+                    className="border-[var(--section-border)] bg-white/90 focus-visible:border-primary/60 focus-visible:ring-primary/25"
                     required
                   />
                 </div>
-                <div>
+                <div className="field-wrapper">
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
                     Email
                   </label>
@@ -96,11 +130,11 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your.email@example.com"
-                    className="border-[var(--section-border)] bg-[rgba(12,20,38,0.65)] focus-visible:border-primary/60 focus-visible:ring-primary/30"
+                    className="border-[var(--section-border)] bg-white/90 focus-visible:border-primary/60 focus-visible:ring-primary/25"
                     required
                   />
                 </div>
-                <div>
+                <div className="field-wrapper">
                   <label htmlFor="message" className="block text-sm font-medium mb-2">
                     Message
                   </label>
@@ -111,17 +145,27 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Your message..."
                     rows={5}
-                    className="border-[var(--section-border)] bg-[rgba(12,20,38,0.65)] focus-visible:border-primary/60 focus-visible:ring-primary/30"
+                    className="border-[var(--section-border)] bg-white/90 focus-visible:border-primary/60 focus-visible:ring-primary/25"
                     required
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-[linear-gradient(135deg,#3f8cff,#72d6ff)] text-slate-950 shadow-[0_20px_55px_-30px_rgba(94,177,255,0.85)] hover:-translate-y-0.5"
+                  disabled={isSubmitting}
+                  className="w-full bg-[linear-gradient(135deg,#3f8cff,#72d6ff)] text-slate-950 shadow-[0_20px_55px_-30px_rgba(94,177,255,0.85)] hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
+              {feedback && (
+                <p
+                  className={`mt-4 text-sm ${
+                    feedback.type === "success" ? "text-primary" : "text-destructive"
+                  }`}
+                >
+                  {feedback.message}
+                </p>
+              )}
             </CardContent>
           </Card>
 
@@ -135,7 +179,7 @@ export function Contact() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-3 rounded-lg border border-[var(--section-border)] bg-[var(--section-surface)] p-4 text-foreground transition-all duration-300 backdrop-blur ${link.color}`}
+                  className={`futuristic-tile flex items-center gap-3 rounded-lg border border-[var(--section-border)] bg-[var(--section-surface)] p-4 text-foreground transition-all duration-300 backdrop-blur ${link.color}`}
                 >
                   <link.icon className="h-6 w-6 text-primary" />
                   <span className="font-medium">{link.name}</span>

@@ -22,12 +22,15 @@ export function Awards() {
   return (
     <SectionWrapper id="awards" className="py-20" style={{ background: "var(--section-alt)" }}>
       <div className="container mx-auto px-4">
-        <h2 className="mb-12 text-center text-4xl font-bold text-[var(--electric-blue)]">Awards & Certifications</h2>
+        <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-[linear-gradient(120deg,#0f172a,#1d4ed8_55%,#1e293b)] drop-shadow-[0_8px_18px_rgba(29,78,216,0.22)]">
+          Awards & Certifications
+        </h2>
+        <div className="mx-auto mt-3 mb-10 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
           {certifications.map((cert, index) => (
             <Card
               key={index}
-              className="border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_60px_-45px_rgba(94,177,255,0.85)]"
+              className="futuristic-card border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_60px_-45px_rgba(94,177,255,0.85)]"
             >
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">

@@ -33,12 +33,7 @@ export function SectionWrapper({ children, id, className = "", style = {} }: Sec
   }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      id={id}
-      className={`min-h-screen w-full snap-start ${className}`}
-      style={{ ...style }}
-    >
+    <section ref={sectionRef} id={id} className={`min-h-screen w-full snap-start ${className}`} style={{ ...style }}>
       {children}
     </section>
   )
