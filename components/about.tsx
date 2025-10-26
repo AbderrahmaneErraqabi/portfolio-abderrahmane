@@ -23,7 +23,7 @@ export function About() {
                 <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
                   I'm a hands-on, creative electrical engineering student at Polytechnique Montréal with a passion for
                   AI, embedded systems, circuit design, and automation. I thrive on solving complex technical challenges
-                  and bringing innovative ideas to life.
+                  and bringing innovative ideas to life
                 </p>
                 <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
                   As a member of the <span className="font-semibold text-primary">Esteban Solar Car team</span>, I work
