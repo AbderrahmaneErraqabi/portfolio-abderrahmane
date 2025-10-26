@@ -1,70 +1,12 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import "../styles/globals.css";
 
 :root {
-  /* Core colors */
-  --background: #ffffff;
-  --foreground: #0b0b0b;
-  --electric-blue: #0057d9;
-  /* toned-down pulse color for a subtle effect */
-  --electric-punch: rgba(0,87,217,0.35);
-  --primary: var(--electric-blue);
+  --surface-overlay: rgba(8, 12, 24, 0.65);
 }
 
 @layer base {
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: var(--background);
+  body {
+    background: var(--page-gradient);
     color: var(--foreground);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  * {
-    box-sizing: border-box;
   }
 }
-
-/* No section enter/exit animations — returning to baseline behavior */
-
-.section-animate {
-  opacity: 0;
-  transform: translateY(40px);
-  min-height: 100vh;
-  position: relative;
-  will-change: transform, opacity;
-}
-
-.section-animate.section-visible {
-  /* visible state — no animation, immediate placement */
-  backface-visibility: hidden;
-  transform-origin: center center;
-  opacity: 1;
-  transform: translate3d(0,0,0);
-  filter: none;
-  will-change: auto;
-}
-
-.section-animate.section-exit {
-  /* exit state — no animation */
-  opacity: 0;
-  transform: translate3d(0,-0,0);
-  filter: none;
-}
-
-/* No pulse overlay — reverting to baseline visuals */
-
-html { scroll-behavior: auto; height: 100%; background-color: var(--background); }
-body { height: 100%; }
-
-/* During a transition we avoid fully locking the page: keep scrolling usable but
-   prevent accidental clicks inside the animated section while showing blur. */
-/* No page lock or transition-specific pointer rules — default browser interactions apply */
-
-.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-
-/* No background grid/lines: intentionally left blank for a clean background */
-
