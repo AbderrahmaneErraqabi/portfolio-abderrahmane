@@ -6,7 +6,7 @@ Built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**, this project showca
 ---
 
 ## 🌐 Live Demo
-➡️ [Visit Portfolio](https://portfolio-abderrahmane.vercel.app)  
+➡️ [Visit Portfolio](https://abderrahmaneer-raqabi.com)  
 *(Deployed via Vercel — fully responsive and bilingual FR/EN)*
 
 ---
