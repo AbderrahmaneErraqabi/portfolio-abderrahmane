@@ -48,7 +48,8 @@ export function Projects() {
   return (
     <SectionWrapper id="projects" className="py-20" style={{ background: "var(--section-alt)" }}>
       <div className="container mx-auto px-4">
-        <h2 className="mb-4 text-center text-4xl font-bold text-[var(--electric-blue)]">Projects</h2>
+        <h2 className="text-center text-4xl font-bold text-[var(--electric-blue)]">Projects</h2>
+        <div className="mx-auto mt-3 mb-8 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
         <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
           A collection of my engineering and software projects, showcasing my skills in embedded systems, circuit
           design, and software development.

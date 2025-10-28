@@ -30,7 +30,8 @@ export function Skills() {
   return (
     <SectionWrapper id="skills" className="py-20" style={{ background: "var(--section-alt)" }}>
       <div className="container mx-auto px-4">
-        <h2 className="mb-12 text-center text-4xl font-bold text-[var(--electric-blue)]">Skills & Expertise</h2>
+        <h2 className="text-center text-4xl font-bold text-[var(--electric-blue)]">Skills & Expertise</h2>
+        <div className="mx-auto mt-3 mb-10 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2">
           {skillCategories.map((category, index) => (
             <Card
