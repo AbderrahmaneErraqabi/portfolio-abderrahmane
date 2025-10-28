@@ -32,66 +32,304 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --cv-primary: #1d4ed8;
+        --cv-secondary: #0f172a;
+        --cv-surface: #ffffff;
+        --cv-surface-soft: rgba(248, 250, 252, 0.82);
+        --cv-border: rgba(15, 23, 42, 0.08);
+        --cv-border-strong: rgba(15, 23, 42, 0.14);
+        --cv-muted: rgba(15, 23, 42, 0.68);
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(165deg, #f8fafc 0%, #eef2ff 45%, #fdfdfd 100%);
+      }
+
       body::before {
         content: "";
         position: fixed;
         inset: 0;
-        background: radial-gradient(circle at 20% 10%, rgba(37, 99, 235, 0.14), transparent 60%),
-          radial-gradient(circle at 85% 0%, rgba(15, 23, 42, 0.08), transparent 65%),
-          radial-gradient(circle at 85% 82%, rgba(59, 130, 246, 0.12), transparent 60%),
-          #f4f6fb;
+        background: radial-gradient(circle at 18% 12%, rgba(148, 163, 184, 0.12), transparent 60%),
+          radial-gradient(circle at 80% 10%, rgba(191, 219, 254, 0.2), transparent 62%), radial-gradient(circle at 75% 82%, rgba(148, 163, 255, 0.18), transparent 58%);
+        opacity: 0.75;
+        pointer-events: none;
         z-index: -1;
+      }
+
+      main.bg-white {
+        position: relative;
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        background: var(--cv-surface);
+        box-shadow: 0 28px 60px -48px rgba(15, 23, 42, 0.35);
+      }
+
+      main.bg-white::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(130deg, rgba(241, 245, 249, 0.82), rgba(255, 255, 255, 0.92) 55%, transparent 100%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      main > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      header.relative {
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.95), rgba(226, 232, 255, 0.9) 65%, rgba(255, 255, 255, 0.98) 100%) !important;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+      }
+
+      header.relative h1 {
+        color: rgba(15, 23, 42, 0.94);
+      }
+
+      header.relative p {
+        color: rgba(15, 23, 42, 0.72);
+      }
+
+      header .flex a.bg-slate-50,
+      header .flex span.bg-slate-50 {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        border: 1px solid rgba(148, 163, 184, 0.36) !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(226, 232, 255, 0.75)) !important;
+        color: rgba(15, 23, 42, 0.8);
+        padding: 0.6rem 1.1rem;
+        border-radius: 9999px;
+        transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 18px 40px -32px rgba(148, 163, 255, 0.55);
+      }
+
+      header .flex a.bg-slate-50:hover,
+      header .flex a.bg-slate-50:focus-visible {
+        border-color: rgba(59, 130, 246, 0.4) !important;
+        color: var(--cv-primary);
+        box-shadow: 0 22px 55px -34px rgba(59, 130, 246, 0.45);
+      }
+
+      header .flex a span.font-mono {
+        letter-spacing: 0.24em;
+        font-size: 0.68rem;
+        color: rgba(15, 23, 42, 0.6);
+      }
+
+      header .flex span.bg-slate-50 {
+        color: rgba(15, 23, 42, 0.72);
+        box-shadow: none;
+      }
+
+      section.grid {
+        position: relative;
+      }
+
+      section.grid::before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border-radius: 22px;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      section.grid > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      article.bg-white {
+        border-radius: 20px;
+        border: 1px solid var(--cv-border);
+        background: var(--cv-surface-soft) !important;
+        box-shadow: 0 20px 40px -36px rgba(15, 23, 42, 0.2);
+      }
+
+      article h2 {
+        letter-spacing: 0.45em;
+        color: rgba(15, 23, 42, 0.65);
+      }
+
+      article .border-l {
+        border-color: rgba(148, 163, 184, 0.4);
+        padding-left: 1.5rem;
+      }
+
+      article .border-l > span {
+        box-shadow: 0 0 0 5px rgba(226, 232, 255, 0.8);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        background: rgba(59, 130, 246, 0.12);
+      }
+
+      article h3 {
+        color: rgba(15, 23, 42, 0.88);
+      }
+
+      article p,
+      article li {
+        color: var(--cv-muted);
+      }
+
+      .border-borderSoft {
+        border-color: rgba(148, 163, 184, 0.28);
+      }
+
+      .border-borderStrong {
+        border-color: var(--cv-border-strong);
+      }
+
+      @media print {
+        html,
+        body {
+          background: #ffffff !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        body {
+          padding: 0 !important;
+        }
+
+        body::before {
+          display: none;
+        }
+
+        main,
+        header,
+        section,
+        article,
+        aside,
+        div {
+          background: #ffffff !important;
+          box-shadow: none !important;
+        }
+
+        main {
+          border: 1px solid #e2e8f0 !important;
+          max-width: 7.8in;
+          border-radius: 0 !important;
+        }
+
+        header {
+          border-bottom: 1px solid #e2e8f0 !important;
+          background: #ffffff !important;
+          border-radius: 0 !important;
+        }
+
+        header h1,
+        header p,
+        header span {
+          color: #0f172a !important;
+          -webkit-text-fill-color: #0f172a !important;
+        }
+
+        header a span {
+          color: #0f172a !important;
+        }
+
+        header a {
+          color: #1d4ed8 !important;
+        }
+
+        .text-accent {
+          color: #1d4ed8 !important;
+        }
+
+        .bg-white\/90,
+        .bg-panel,
+        .bg-canvas {
+          background: #ffffff !important;
+        }
+
+        a {
+          color: #1d4ed8 !important;
+          text-decoration: none;
+        }
+
+        section {
+          gap: 1rem !important;
+          padding: 1.25rem 1.5rem !important;
+        }
+
+        article {
+          border-radius: 14px !important;
+          border: 1px solid #e2e8f0 !important;
+        }
+
+        body::before,
+        body::after,
+        main::before,
+        main::after,
+        section::before,
+        header::before,
+        header::after,
+        article::before {
+          display: none !important;
+        }
+
+        header .flex a,
+        header .flex span {
+          background: #ffffff !important;
+          border-color: #e2e8f0 !important;
+          box-shadow: none !important;
+        }
+
+        main::before {
+          display: none !important;
+        }
+
+        .border-borderStrong,
+        .border-borderSoft {
+          border-color: #e2e8f0 !important;
+        }
       }
     </style>
   </head>
-  <body class="min-h-screen bg-canvas text-copy antialiased py-12 px-6">
-    <main class="mx-auto max-w-5xl rounded-[26px] border border-borderSoft bg-panel shadow-[0_60px_100px_-60px_rgba(15,23,42,0.35)]">
-      <header class="relative overflow-hidden rounded-[26px] border-b border-borderSoft bg-white/90">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(59,130,246,0.18),transparent_60%)]"></div>
-        <div class="relative flex flex-col gap-6 px-10 py-10 md:flex-row md:items-center md:justify-between">
+  <body class="min-h-screen bg-white text-copy antialiased py-10 px-6 print:bg-white print:text-black">
+    <main class="mx-auto w-full max-w-[8.27in] border border-borderSoft bg-white shadow-sm print:shadow-none print:border print:border-slate-200">
+      <header class="relative overflow-hidden border-b border-borderSoft bg-white">
+        <div class="relative flex flex-col gap-4 px-6 py-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p class="text-[11px] uppercase tracking-[0.45em] text-accent">Ingénierie électrique</p>
-            <h1 class="mt-3 text-3xl font-semibold tracking-[0.12em] text-copy md:text-4xl">
+            <h1 class="mt-1 text-[28px] font-semibold tracking-[0.12em] text-copy md:text-4xl">
               Abderrahmane Er-Raqabi
             </h1>
-            <p class="mt-3 max-w-2xl text-sm text-copyMuted md:text-base">
-              Étudiant en génie électrique spécialisé en conception de câblage, systèmes embarqués et architectures automatisées haute fiabilité.
+            <p class="mt-2 max-w-2xl text-[13px] text-copyMuted md:text-sm">
+              Étudiant en génie électrique à Polytechnique Montréal, passionné par les systèmes embarqués intelligents, la conception de câblage et l’innovation dans les technologies électroniques.
             </p>
           </div>
-          <div class="flex flex-col gap-2 text-[12px] font-medium text-copyMuted md:text-sm">
-            <a href="mailto:abderrahmane.erraqabi@gmail.com" class="flex items-center gap-2 rounded-full border border-borderSoft px-4 py-2 transition hover:border-accent hover:text-accent">
-              <span class="font-mono text-[11px] tracking-[0.3em] uppercase">Email</span>
+          <div class="flex flex-col gap-2 text-[12px] font-medium text-copy md:text-sm">
+            <a href="mailto:abderrahmane.erraqabi@gmail.com" class="flex items-center gap-2 rounded-lg border border-borderSoft bg-slate-50 px-4 py-1.5 transition hover:border-accent hover:text-accent print:bg-white">
+              <span class="font-mono text-[11px] tracking-[0.3em] uppercase">Courriel</span>
               abderrahmane.erraqabi@gmail.com
             </a>
-            <a href="https://www.linkedin.com/in/abderrahmane-er-raqabi-7381b0354/" target="_blank" class="flex items-center gap-2 rounded-full border border-borderSoft px-4 py-2 transition hover:border-accent hover:text-accent">
-              <span class="font-mono text-[11px] tracking-[0.3em] uppercase">LinkedIn</span>
-              linkedin.com/in/abderrahmane-er-raqabi
+            <a href="https://www.linkedin.com/in/abderrahmane-er-raqabi-7381b0354" target="_blank" class="flex items-center gap-2 rounded-lg border border-borderSoft bg-slate-50 px-4 py-1.5 transition hover:border-accent hover:text-accent print:bg-white">
+              <span class="font-mono text-[11px] tracking-[0.3em] uppercase">Profil LinkedIn</span>
+              www.linkedin.com/in/abderrahmane-er-raqabi-7381b0354
             </a>
-            <a href="https://github.com/AbderrahmaneErraqabi" target="_blank" class="flex items-center gap-2 rounded-full border border-borderSoft px-4 py-2 transition hover:border-accent hover:text-accent">
+            <a href="https://github.com/AbderrahmaneErraqabi" target="_blank" class="flex items-center gap-2 rounded-lg border border-borderSoft bg-slate-50 px-4 py-1.5 transition hover:border-accent hover:text-accent print:bg-white">
               <span class="font-mono text-[11px] tracking-[0.3em] uppercase">GitHub</span>
               github.com/AbderrahmaneErraqabi
             </a>
-            <span class="rounded-full border border-borderSoft px-4 py-2 text-center">Montréal, QC</span>
+            <span class="rounded-lg border border-borderSoft bg-slate-50 px-4 py-1.5 text-center print:bg-white">514-806-3430</span>
+            <span class="rounded-lg border border-borderSoft bg-slate-50 px-4 py-1.5 text-center print:bg-white">Laval, QC</span>
           </div>
         </div>
       </header>
 
-      <section class="grid gap-8 px-10 py-10 md:grid-cols-[1.2fr_0.9fr] md:gap-10">
-        <div class="space-y-8">
-          <article class="rounded-[20px] border border-borderStrong bg-white/90 px-7 py-6 shadow-[0_32px_80px_-50px_rgba(37,99,235,0.4)]">
-            <h2 class="text-[11px] uppercase tracking-[0.45em] text-accent">Expériences &amp; Projets</h2>
-            <div class="mt-6 space-y-6 text-sm leading-relaxed text-copyMuted">
-              <div class="relative border-l border-borderStrong pl-6">
-                <span class="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-accent"></span>
-                <header class="flex flex-col gap-1 text-copy sm:flex-row sm:items-baseline sm:justify-between">
-                  <h3 class="font-semibold">Gestionnaire des ventes — Sofmoc</h3>
-                  <span class="text-[10px] uppercase tracking-[0.32em] text-copyMuted">2023 — Présent</span>
-                </header>
-                <p class="mt-2">
-                  Direction d’équipe, pilotage des indicateurs clés et initiatives ciblées pour optimiser les ventes et fidéliser la clientèle dans un environnement à haut volume.
-                </p>
-              </div>
-
+      <section class="grid gap-5 px-6 py-6 md:grid-cols-[1.2fr_0.9fr] md:gap-6 print:gap-4 print:px-6 print:py-4">
+        <div class="space-y-4 print:space-y-2.5">
+          <article class="rounded-[18px] border border-borderStrong bg-white px-5 py-4 shadow-sm print:shadow-none">
+            <h2 class="text-[11px] uppercase tracking-[0.45em] text-accent">Expériences</h2>
+            <div class="mt-3 space-y-3 text-sm leading-relaxed text-copyMuted">
               <div class="relative border-l border-borderStrong pl-6">
                 <span class="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-accent"></span>
                 <header class="flex flex-col gap-1 text-copy sm:flex-row sm:items-baseline sm:justify-between">
@@ -106,22 +344,60 @@
               <div class="relative border-l border-borderStrong pl-6">
                 <span class="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-accent"></span>
                 <header class="flex flex-col gap-1 text-copy sm:flex-row sm:items-baseline sm:justify-between">
-                  <h3 class="font-semibold">Image-processor — Traitement d’images RGB</h3>
-                  <span class="text-[10px] uppercase tracking-[0.32em] text-copyMuted">2025</span>
+                  <h3 class="font-semibold">Gestionnaire des ventes — Sofmoc</h3>
+                  <span class="text-[10px] uppercase tracking-[0.32em] text-copyMuted">2023 — Présent</span>
                 </header>
                 <p class="mt-2">
-                  Projet C++ pour manipuler et visualiser des images RGB par opérations pixelaires et routines de lecture/écriture de fichiers.
+                  Direction d’équipe, pilotage des indicateurs clés et initiatives ciblées pour optimiser les ventes et fidéliser la clientèle dans un environnement à haut volume.
                 </p>
               </div>
 
               <div class="relative border-l border-borderStrong pl-6">
                 <span class="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-accent"></span>
                 <header class="flex flex-col gap-1 text-copy sm:flex-row sm:items-baseline sm:justify-between">
-                  <h3 class="font-semibold">Mini-SPICE — Solveur de circuits DC</h3>
+                  <h3 class="font-semibold">Service à la clientèle — Bopied</h3>
+                  <span class="text-[10px] uppercase tracking-[0.32em] text-copyMuted">2021 — 2023</span>
+                </header>
+                <p class="mt-2">
+                  Conseil personnalisé, prise en charge des commandes et résolution proactive des demandes pour assurer une expérience client fluide et fidèle.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-[18px] border border-borderStrong bg-white px-5 py-4 shadow-sm print:shadow-none">
+            <h2 class="text-[11px] uppercase tracking-[0.45em] text-accent">Projets</h2>
+            <div class="mt-3 space-y-3 text-sm leading-relaxed text-copyMuted">
+              <div class="relative border-l border-borderStrong pl-6">
+                <span class="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-accent"></span>
+                <header class="flex flex-col gap-1 text-copy sm:flex-row sm:items-baseline sm:justify-between">
+                  <h3 class="font-semibold">Microcontrôleur STM32 — Contrôleur d’éclairage</h3>
                   <span class="text-[10px] uppercase tracking-[0.32em] text-copyMuted">2025</span>
                 </header>
                 <p class="mt-2">
-                  Développement d’un outil C++ pour simuler des réseaux DC à l’aide de l’analyse nodale et de matrices applicables aux architectures d’alimentation.
+                  Développement d’un contrôleur STM32 pour piloter un système d’éclairage à intensité variable, incluant capteur de luminosité, PWM et interface série pour la configuration.
+                </p>
+              </div>
+
+              <div class="relative border-l border-borderStrong pl-6">
+                <span class="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-accent"></span>
+                <header class="flex flex-col gap-1 text-copy sm:flex-row sm:items-baseline sm:justify-between">
+                  <h3 class="font-semibold">Image-processor — Traitement d’images RVB</h3>
+                  <span class="text-[10px] uppercase tracking-[0.32em] text-copyMuted">2025</span>
+                </header>
+                <p class="mt-2">
+                  Projet C++ pour manipuler et visualiser des images RVB par opérations pixelaires et routines de lecture/écriture de fichiers.
+                </p>
+              </div>
+
+              <div class="relative border-l border-borderStrong pl-6">
+                <span class="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-accent"></span>
+                <header class="flex flex-col gap-1 text-copy sm:flex-row sm:items-baseline sm:justify-between">
+                  <h3 class="font-semibold">Mini-SPICE — Solveur de circuits CC</h3>
+                  <span class="text-[10px] uppercase tracking-[0.32em] text-copyMuted">2025</span>
+                </header>
+                <p class="mt-2">
+                  Développement d’un outil C++ pour simuler des réseaux de courant continu à l’aide de l’analyse nodale et de matrices applicables aux architectures d’alimentation.
                 </p>
               </div>
 
@@ -132,26 +408,37 @@
                   <span class="text-[10px] uppercase tracking-[0.32em] text-copyMuted">2025</span>
                 </header>
                 <p class="mt-2">
-                  Conception d’un système logique à bascules et décodeurs 7 segments pour automatiser le comptage en production.
+                  Conception d’un système logique à bascules et décodeurs 7 segments pour automatiser le comptage en production, avec prototypage sur Arduino pour valider la chaîne de contrôle.
                 </p>
               </div>
             </div>
           </article>
 
-          <article class="rounded-[20px] border border-borderStrong bg-white/90 px-7 py-6 shadow-[0_32px_80px_-50px_rgba(37,99,235,0.4)]">
+          <article class="rounded-[18px] border border-borderStrong bg-white px-5 py-4 shadow-sm print:shadow-none">
+            <h2 class="text-[11px] uppercase tracking-[0.45em] text-accent">Certifications</h2>
+            <ul class="mt-3 space-y-2 text-sm text-copyMuted">
+              <li>SIMDUT — Sécurité des matières dangereuses</li>
+              <li>Techniques de réanimation respiratoire (RCR / premiers soins)</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <aside class="space-y-4 print:space-y-2.5">
+          <article class="rounded-[18px] border border-borderStrong bg-white px-5 py-4 shadow-sm print:shadow-none">
             <h2 class="text-[11px] uppercase tracking-[0.45em] text-accent">Éducation</h2>
-            <div class="mt-6 space-y-4 text-sm text-copyMuted">
-              <div class="rounded-2xl border border-borderSoft bg-panelSoft px-5 py-4">
+            <div class="mt-3 space-y-3 text-sm text-copyMuted">
+              <div class="rounded-xl border border-borderSoft bg-panelSoft px-5 py-3.5 print:bg-white">
                 <div class="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 class="font-semibold text-copy">Polytechnique Montréal — Baccalauréat en génie électrique </h3>
+                  <h3 class="font-semibold text-copy">Polytechnique Montréal — Baccalauréat en génie électrique</h3>
                   <span class="text-[10px] uppercase tracking-[0.32em]">2025 — Présent</span>
                 </div>
                 <p class="mt-2">
-                  Étudiant en génie électrique à Polytechnique Montréal, je conçois et programme des systèmes embarqués, des circuits numériques et des interfaces de contrôle dans le cadre de projets techniques et d’équipes multidisciplinaires.
+                  Étudiant en génie électrique, je conçois et programme des systèmes embarqués, des circuits numériques et des interfaces de contrôle dans le cadre de projets techniques et d’équipes multidisciplinaires.
                 </p>
               </div>
 
-              <div class="rounded-2xl border border-borderSoft bg-panelSoft px-5 py-4">
+              <div class="rounded-xl border border-borderSoft bg-panelSoft px-5 py-3.5 print:bg-white">
                 <div class="flex flex-wrap items-baseline justify-between gap-2">
                   <h3 class="font-semibold text-copy">Collège Bois-de-Boulogne — DEC Sciences de la nature</h3>
                   <span class="text-[10px] uppercase tracking-[0.32em]">2023 — 2025</span>
@@ -160,36 +447,40 @@
                   Parcours scientifique axé sur les mathématiques avancées, la physique appliquée et la préparation aux études en génie.
                 </p>
               </div>
+
+              <div class="rounded-xl border border-borderSoft bg-panelSoft px-5 py-3.5 print:bg-white">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="font-semibold text-copy">École secondaire Curé-Antoine-Labelle — Diplôme d’études secondaires</h3>
+                  <span class="text-[10px] uppercase tracking-[0.32em]">2018 — 2023</span>
+                </div>
+                <p class="mt-2">
+                  J’ai obtenu mon diplôme secondaire avec un profil axé sur les sciences et les mathématiques avancées.
+                </p>
+              </div>
             </div>
           </article>
-        </div>
 
-        <aside class="space-y-8">
-          <article class="rounded-[20px] border border-borderStrong bg-white/90 px-7 py-6 shadow-[0_32px_80px_-50px_rgba(37,99,235,0.4)]">
+          <article class="rounded-[18px] border border-borderStrong bg-white px-5 py-4 shadow-sm print:shadow-none">
             <h2 class="text-[11px] uppercase tracking-[0.45em] text-accent">Compétences Techniques</h2>
-            <ul class="mt-6 space-y-3 text-sm text-copyMuted">
+            <ul class="mt-3 space-y-2 text-sm text-copyMuted">
               <li>
-                <span class="font-semibold text-copy">Langages :</span>
-                C, C++, Python, Rust
+                <span class="font-semibold text-copy">💻 Langages :</span>
+                C/C++, Python, Rust, MATLAB, JavaScript, HTML, CSS, React, SQL
               </li>
               <li>
-                <span class="font-semibold text-copy">Électronique &amp; CAO :</span>
-                KiCad, AutoCAD Electrical, Arduino, STM32, faisceaux électriques
+                <span class="font-semibold text-copy">🔧 Outils &amp; plateformes :</span>
+                KiCad, AutoCAD Electrical, Git, STM32, Arduino, CLion, VS Code, Raspberry Pi, Linux
               </li>
               <li>
-                <span class="font-semibold text-copy">Logiciels &amp; Web :</span>
-                Git, VS Code, MATLAB, React, Next.js, Tailwind CSS
-              </li>
-              <li>
-                <span class="font-semibold text-copy">Domaines :</span>
-                Systèmes embarqués, câblage, conception de circuits, automatisation
+                <span class="font-semibold text-copy">⚡ Domaines d’intérêt :</span>
+                Conception de circuits, intégration de systèmes, réseaux d’alimentation, simulation, contrôle embarqué
               </li>
             </ul>
           </article>
 
-          <article class="rounded-[20px] border border-borderStrong bg-white/90 px-7 py-6 shadow-[0_32px_80px_-50px_rgba(37,99,235,0.4)]">
+          <article class="rounded-[18px] border border-borderStrong bg-white px-5 py-4 shadow-sm print:shadow-none">
             <h2 class="text-[11px] uppercase tracking-[0.45em] text-accent">Langues</h2>
-            <ul class="mt-5 space-y-3 text-sm text-copyMuted">
+            <ul class="mt-3 space-y-2 text-sm text-copyMuted">
               <li><span class="font-semibold text-copy">Français :</span> Courant</li>
               <li><span class="font-semibold text-copy">Anglais :</span> Courant</li>
               <li><span class="font-semibold text-copy">Arabe :</span> Courant</li>
@@ -197,20 +488,6 @@
             </ul>
           </article>
 
-          <article class="rounded-[20px] border border-borderStrong bg-white/90 px-7 py-6 shadow-[0_32px_80px_-50px_rgba(37,99,235,0.4)]">
-            <h2 class="text-[11px] uppercase tracking-[0.45em] text-accent">Certifications</h2>
-            <ul class="mt-5 space-y-3 text-sm text-copyMuted">
-              <li>SIMDUT — Sécurité des matières dangereuses</li>
-              <li>Techniques de réanimation respiratoire (RCR / premiers soins)</li>
-            </ul>
-          </article>
-
-          <article class="rounded-[20px] border border-borderStrong bg-white/90 px-7 py-6 shadow-[0_32px_80px_-50px_rgba(37,99,235,0.4)]">
-            <h2 class="text-[11px] uppercase tracking-[0.45em] text-accent">Disponible</h2>
-            <p class="mt-4 text-sm text-copyMuted">
-              Disponible pour stages en génie électrique.
-            </p>
-          </article>
         </aside>
       </section>
     </main>

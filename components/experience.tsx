@@ -1,18 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { GraduationCap, Car } from "lucide-react"
+import { Briefcase, Car, LineChart } from "lucide-react"
 
 const experiences = [
   {
-    year: "2025",
-    title: "Joined Esteban Solar Car Team",
-    description: "Wiring & Embedded Systems Division",
+    year: "2025 — Present",
+    title: "Équipe Esteban — Groupe câblage",
+    description:
+      "Participation à la conception et à l’implantation du réseau électrique de la voiture solaire Esteban, incluant le câblage, le routage des faisceaux et l’intégration des sous-systèmes de contrôle et de sécurité.",
     icon: Car,
   },
   {
-    year: "2025",
-    title: "Entered Polytechnique Montréal",
-    description: "Started Electrical Engineering program",
-    icon: GraduationCap,
+    year: "2023 — Present",
+    title: "Gestionnaire des ventes — Sofmoc",
+    description:
+      "Leadership d’équipe, suivi des indicateurs clés et initiatives ciblées pour stimuler les ventes et fidéliser la clientèle dans un environnement à haut volume.",
+    icon: LineChart,
+  },
+  {
+    year: "2021 — 2023",
+    title: "Service à la clientèle — Bopied",
+    description:
+      "Conseil personnalisé, gestion des commandes et résolution proactive des demandes pour assurer une expérience client fluide et fidèle.",
+    icon: Briefcase,
   },
 ]
 
