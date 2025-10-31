@@ -10,12 +10,12 @@ const skillCategories = [
   {
     title: "Tools & Frameworks",
     icon: Wrench,
-    skills: ["KiCad", "AutoCAD Electrical", "Git", "VS Code", "React", "Next.js", "Tailwind CSS", "Arduino", "STM32"],
+    skills: ["KiCad", "AutoCAD Electrical", "Git", "VS Code", "React", "Next.js", "Tailwind CSS", "Arduino", "STM32", "PlatformIO"],
   },
   {
     title: "Engineering & Concepts",
     icon: Cpu,
-    skills: ["Embedded Systems", "PCB Design", "Power Electronics", "Control Systems", "Signal Processing"],
+    skills: ["Embedded Systems", "PCB Design", "Power Electronics", "Control Systems", "Wiring harness design", "Circuit design and simulation"],
   },
   {
     title: "Other Interests",

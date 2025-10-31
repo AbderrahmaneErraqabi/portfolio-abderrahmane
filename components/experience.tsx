@@ -4,23 +4,23 @@ import { Briefcase, Car, LineChart } from "lucide-react"
 const experiences = [
   {
     year: "2025 — Present",
-    title: "Équipe Esteban — Groupe câblage",
+    title: "Wiring Team — Esteban Solar Car Team",
     description:
-      "Participation à la conception et à l’implantation du réseau électrique de la voiture solaire Esteban, incluant le câblage, le routage des faisceaux et l’intégration des sous-systèmes de contrôle et de sécurité.",
+      "Design and implementation of the electrical network of the Esteban solar car, including harness routing, high and low voltage wiring, and integration of control and safety subsystems.",
     icon: Car,
   },
   {
     year: "2023 — Present",
-    title: "Gestionnaire des ventes — Sofmoc",
+    title: "Sales Manager — SoftMoc",
     description:
-      "Leadership d’équipe, suivi des indicateurs clés et initiatives ciblées pour stimuler les ventes et fidéliser la clientèle dans un environnement à haut volume.",
+      "Team supervision and performance monitoring to optimize sales and customer experience. Implemented loyalty-focused initiatives and managed operations in a high-volume retail environment.",
     icon: LineChart,
   },
   {
     year: "2021 — 2023",
-    title: "Service à la clientèle — Bopied",
+    title: "Keyholder — Bopied",
     description:
-      "Conseil personnalisé, gestion des commandes et résolution proactive des demandes pour assurer une expérience client fluide et fidèle.",
+      "Responsible for customer service, order management, and inventory operations. Contributed to training new employees and maintaining an efficient and welcoming store environment.",
     icon: Briefcase,
   },
 ]

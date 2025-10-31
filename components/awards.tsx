@@ -5,14 +5,14 @@ import { SectionWrapper } from "./section-wrapper"
 
 const certifications = [
   {
-    title: "Techniques de réanimation respiratoire",
-    description: "CPR / First Aid Certification",
+    title: "Respiratory Protection Training",
+    description: "Training on the safe use and maintenance of respiratory protective equipment",
     year: "2025",
     icon: Award,
   },
   {
-    title: "SIMDUT",
-    description: "Système d'information sur les matières dangereuses utilisées au travail",
+    title: "WHMIS 2015",
+    description: "Workplace safety and chemical handling training",
     year: "2025",
     icon: Shield,
   },

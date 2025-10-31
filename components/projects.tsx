@@ -2,7 +2,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink } from "lucide-react"
 
-const projects = [
+type Project = {
+  title: string
+  description: string
+  tags: string[]
+  github: string
+  demo: string
+}
+
+const projects: Project[] = [
   {
     title: "Solar Car Wiring System",
     description:
@@ -24,7 +32,7 @@ const projects = [
     description: "Designed an automation system using flip-flops and 7-segment displays for sequential logic control.",
     tags: ["Digital Logic", "VHDL", "Hardware Design"],
     github: "#",
-    demo: "#",
+    demo: "/projects/automation-flip-flops",
   },
   {
     title: "Image Processing & Pixel Manipulation Tool",
@@ -55,52 +63,60 @@ export function Projects() {
           design, and software development.
         </p>
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="futuristic-card group border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_65px_-45px_rgba(94,177,255,0.85)]"
-            >
-              <CardHeader>
-                <CardTitle className="transition-colors group-hover:text-primary">{project.title}</CardTitle>
-                <CardDescription className="leading-relaxed text-muted-foreground">{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+          {projects.map((project, index) => {
+            const isInternal = project.demo.startsWith("/") && !project.demo.startsWith("//")
+
+            return (
+              <Card
+                key={index}
+                className="futuristic-card group border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_65px_-45px_rgba(94,177,255,0.85)]"
+              >
+                <CardHeader>
+                  <CardTitle className="transition-colors group-hover:text-primary">{project.title}</CardTitle>
+                  <CardDescription className="leading-relaxed text-muted-foreground">{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="flex-1 gap-2 border-[var(--section-border)] bg-transparent text-foreground hover:border-primary/50 hover:bg-primary/10"
+                      asChild
                     >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="flex-1 gap-2 border-[var(--section-border)] bg-transparent text-foreground hover:border-primary/50 hover:bg-primary/10"
-                    asChild
-                  >
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4" />
-                      GitHub
-                    </a>
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="flex-1 gap-2 bg-[linear-gradient(135deg,#3f8cff,#72d6ff)] text-slate-950 shadow-[0_18px_55px_-30px_rgba(94,177,255,0.9)] hover:-translate-y-0.5"
-                    asChild
-                  >
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4" />
-                      Details
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-4 w-4" />
+                        GitHub
+                      </a>
+                    </Button>
+                    <Button
+                      size="sm"
+                      className="flex-1 gap-2 bg-[linear-gradient(135deg,#3f8cff,#72d6ff)] text-slate-950 shadow-[0_18px_55px_-30px_rgba(94,177,255,0.9)] hover:-translate-y-0.5"
+                      asChild
+                    >
+                      <a
+                        href={project.demo}
+                        target={isInternal ? undefined : "_blank"}
+                        rel={isInternal ? undefined : "noopener noreferrer"}
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        Details
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            )
+          })}
         </div>
       </div>
     </SectionWrapper>
