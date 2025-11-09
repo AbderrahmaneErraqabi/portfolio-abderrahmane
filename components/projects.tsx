@@ -42,11 +42,12 @@ const projects: Project[] = [
     demo: "https://github.com/AbderrahmaneErraqabi/Image-processor",
   },
   {
-    title: "Personal Investing Dashboard",
-    description: "Interactive dashboard for tracking investments and visualizing market data with real-time analysis.",
-    tags: ["Finance", "Data Visualization", "Python"],
-    github: "#",
-    demo: "#",
+    title: "RegulAI – Portfolio Intelligence",
+    description:
+      "PolyFinances Datathon 2025 build that ingests regulations, enriches them with Yahoo Finance data, and translates the impact into portfolio-ready insights.",
+    tags: ["React", "AWS", "Serverless", "Finance AI"],
+    github: "https://github.com/AbderrahmaneErraqabi/RegulAi",
+    demo: "/projects/personal-investing-dashboard",
   },
 ]
 
