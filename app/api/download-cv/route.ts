@@ -1,21 +1,15 @@
 import { promises as fs } from "fs"
 import path from "path"
 
-const DOWNLOAD_BASE_NAME = "Abderrahmane_ErRaqabi_CV"
+const DOWNLOAD_BASE_NAME = "Abderrahmane Er-Raqabi Cv anglais"
 const CANDIDATE_PATHS = [
+  path.join(process.cwd(), "public", "Abderrahmane Er-Raqabi Cv anglais .pdf"),
   path.join(process.cwd(), "public", `${DOWNLOAD_BASE_NAME}.pdf`),
-  path.join(process.cwd(), "public", "Abderrahmane Er-Raqabi Cv.pdf"),
-  path.join(process.cwd(), "autoCV-2", "cv.pdf"),
-  path.join(process.cwd(), "autoCV-2", "build", "cv.pdf"),
-  path.join(process.cwd(), "public", "cv.pdf"),
-  path.join(process.cwd(), "autoCV-2", "cv.tex"),
-  path.join(process.cwd(), "public", `${DOWNLOAD_BASE_NAME}.tex`),
-  path.join(process.cwd(), "public", "cv.tex"),
+  path.join(process.cwd(), "public", "CV-Abderrahmane-Er-Raqabi.pdf"),
 ]
 
 const CONTENT_TYPE_BY_EXTENSION: Record<string, string> = {
   ".pdf": "application/pdf",
-  ".tex": "text/x-tex",
 }
 
 export const runtime = "nodejs"
