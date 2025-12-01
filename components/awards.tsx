@@ -1,4 +1,4 @@
- "use client";
+"use client";
 import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Shield } from "lucide-react"
@@ -25,10 +25,17 @@ const certifications = [
     icon: Shield,
     link: "/Cloud%20Computing%20Security.pdf",
   },
+  {
+    title: "Passenger Rail Industry Safety",
+    description: "Certification covering safety practices and standards for passenger rail operations",
+    year: "2025",
+    icon: Shield,
+    link: "/Passenger%20rail%20industry.pdf",
+  },
 ]
 
 export function Awards() {
-  const [activePdf, setActivePdf] = useState<string | null>(null)
+  const [activeCert, setActiveCert] = useState<{ title: string; link: string } | null>(null)
 
   return (
     <SectionWrapper id="awards" className="py-20" style={{ background: "var(--section-alt)" }}>
@@ -63,7 +70,7 @@ export function Awards() {
                 <button
                   key={index}
                   type="button"
-                  onClick={() => setActivePdf(cert.link!)}
+                  onClick={() => setActiveCert({ title: cert.title, link: cert.link! })}
                   className="h-full text-left"
                 >
                   {card}
@@ -80,17 +87,17 @@ export function Awards() {
         </div>
       </div>
 
-      {activePdf && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4" onClick={() => setActivePdf(null)}>
+      {activeCert && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4" onClick={() => setActiveCert(null)}>
           <div
             className="relative w-full max-w-6xl overflow-hidden rounded-2xl bg-background shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-[var(--section-border)] px-4 py-3">
-              <div className="text-sm font-semibold text-foreground">Cloud Computing Security (PDF)</div>
+              <div className="text-sm font-semibold text-foreground">{activeCert.title} (PDF)</div>
               <button
                 type="button"
-                onClick={() => setActivePdf(null)}
+                onClick={() => setActiveCert(null)}
                 className="rounded-md px-3 py-1 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
               >
                 Close
@@ -98,8 +105,8 @@ export function Awards() {
             </div>
             <div className="h-[80vh] bg-muted sm:h-[85vh]">
               <iframe
-                src={activePdf}
-                title="Cloud Computing Security"
+                src={activeCert.link}
+                title={activeCert.title}
                 className="h-full w-full border-0"
                 allow="fullscreen"
               />
