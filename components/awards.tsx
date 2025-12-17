@@ -11,12 +11,14 @@ const certifications = [
     description: "Training on the safe use and maintenance of respiratory protective equipment",
     year: "2025",
     icon: Award,
+    link: "/PolyMTL%20-%20Protections%20respiratoires%20-%20Abderrahmane%20Er-Raqabi%20-%202025-09-24.pdf",
   },
   {
     title: "WHMIS 2015",
     description: "Workplace safety and chemical handling training",
     year: "2025",
     icon: Shield,
+    link: "/Attestations%20-%20SIMDUT%202015.pdf",
   },
   {
     title: "Cloud Computing Security",

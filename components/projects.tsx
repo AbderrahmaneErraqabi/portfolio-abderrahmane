@@ -28,10 +28,11 @@ const projects: Project[] = [
     demo: "https://github.com/AbderrahmaneErraqabi/mini-spice-dc",
   },
   {
-    title: "Automation System with Flip-Flops",
-    description: "Designed an automation system using flip-flops and 7-segment displays for sequential logic control.",
-    tags: ["Digital Logic", "VHDL", "Hardware Design"],
-    github: "#",
+    title: "ELE1001 BCD Keypad Display",
+    description:
+      "Embedded Arduino system that reads a 4×4 keypad and drives a two-digit BCD display, with validation and synchronization signals.",
+    tags: ["Arduino", "Embedded", "BCD"],
+    github: "https://github.com/AbderrahmaneErraqabi/ELE1001-Keypad-7Segment-System",
     demo: "/projects/automation-flip-flops",
   },
   {
