@@ -267,7 +267,7 @@ export default function ELE1001Project() {
         {/* Stage 1 */}
         <section className="mb-16 rounded-3xl border border-[var(--section-border)] bg-[var(--section-surface)] p-10">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-full bg-[var(--electric-blue)] flex items-center justify-center text-white text-lg font-bold">①</div>
+            <div className="w-10 h-10 rounded-full bg-[var(--electric-blue)] flex items-center justify-center text-white text-lg font-bold">1</div>
             <h2 className="text-3xl font-bold text-[var(--electric-blue)]">Stage 1: User Input & Display (Arduino)</h2>
           </div>
 
@@ -410,7 +410,7 @@ export default function ELE1001Project() {
         {/* Stage 2 */}
         <section className="mb-16 rounded-3xl border border-[var(--section-border)] bg-[var(--section-surface)] p-10">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-full bg-[var(--electric-blue)] flex items-center justify-center text-white text-lg font-bold">②</div>
+            <div className="w-10 h-10 rounded-full bg-[var(--electric-blue)] flex items-center justify-center text-white text-lg font-bold">2</div>
             <h2 className="text-3xl font-bold text-[var(--electric-blue)]">Stage 2: Pill Counting Per Bottle (Discrete Logic)</h2>
           </div>
 
@@ -497,7 +497,7 @@ export default function ELE1001Project() {
         {/* Stage 3 */}
         <section className="mb-16 rounded-3xl border border-[var(--section-border)] bg-[var(--section-surface)] p-10">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-full bg-[var(--electric-blue)] flex items-center justify-center text-white text-lg font-bold">③</div>
+            <div className="w-10 h-10 rounded-full bg-[var(--electric-blue)] flex items-center justify-center text-white text-lg font-bold">3</div>
             <h2 className="text-3xl font-bold text-[var(--electric-blue)]">Stage 3: Counting Filled Bottles (Discrete Logic)</h2>
           </div>
 
@@ -628,20 +628,17 @@ export default function ELE1001Project() {
             <ImageZoomable />
 
             <figure className="overflow-hidden rounded-2xl border border-primary/20">
-              <video
-                width={1280}
-                height={720}
-                controls
-                className="w-full h-auto max-h-[65vh] object-contain bg-black rounded"
-                preload="metadata"
-                playsInline
-              >
-                <source src="/Vid%C3%A9o%20pr%C3%A9sentation%20projet%20ELE1001.mp4" type="video/mp4" />
-                <source src="/Vid%C3%A9o%20pr%C3%A9sentation%20projet%20ELE1001.MOV" type="video/quicktime" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="w-full h-[65vh] bg-black rounded overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/AgQNyCCDQiU"
+                  title="ELE1001 Project Presentation"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
               <figcaption className="p-4 text-sm text-muted-foreground text-center">
-                Project Presentation Video
+                Project Presentation Video (YouTube)
               </figcaption>
             </figure>
           </div>
