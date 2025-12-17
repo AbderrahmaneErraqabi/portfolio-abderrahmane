@@ -49,7 +49,7 @@ export function Hero() {
             intelligent power solutions.
           </p>
           <p className="mt-4 text-lg font-medium text-primary/85 md:text-xl">
-            Designing cleaner energy systems and smarter financial technology with a hands-on, system thinking mindset.
+            Designing smarter energy and intelligent control systems through a hands-on, systems-driven approach.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-5 sm:flex-row">
@@ -67,7 +67,7 @@ export function Hero() {
               className="gap-2 rounded-full border border-primary/40 bg-white/70 px-7 text-base font-semibold text-primary shadow-[0_30px_70px_-45px_rgba(29,78,216,0.55)] backdrop-blur-md transition-all duration-300 hover:border-primary/60 hover:bg-primary/10 hover:text-primary/90"
               asChild
             >
-              <a href="/Abderrahmane-Er-Raqabi-CV.pdf" download>
+              <a href="/api/download-cv" download="Abderrahmane_ErRaqabi_CV">
                 <Download className="h-5 w-5" />
                 Download CV
               </a>

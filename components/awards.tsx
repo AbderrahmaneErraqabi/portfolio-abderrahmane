@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Shield } from "lucide-react"
 
@@ -5,20 +7,36 @@ import { SectionWrapper } from "./section-wrapper"
 
 const certifications = [
   {
-    title: "Techniques de réanimation respiratoire",
-    description: "CPR / First Aid Certification",
+    title: "Respiratory Protection Training",
+    description: "Training on the safe use and maintenance of respiratory protective equipment",
     year: "2025",
     icon: Award,
   },
   {
-    title: "SIMDUT",
-    description: "Système d'information sur les matières dangereuses utilisées au travail",
+    title: "WHMIS 2015",
+    description: "Workplace safety and chemical handling training",
     year: "2025",
     icon: Shield,
+  },
+  {
+    title: "Cloud Computing Security",
+    description: "Certification focused on securing cloud environments and mitigating modern threats",
+    year: "2025",
+    icon: Shield,
+    link: "/Cloud%20Computing%20Security.pdf",
+  },
+  {
+    title: "Passenger Rail Industry Safety",
+    description: "Certification covering safety practices and standards for passenger rail operations",
+    year: "2025",
+    icon: Shield,
+    link: "/Passenger%20rail%20industry.pdf",
   },
 ]
 
 export function Awards() {
+  const [activeCert, setActiveCert] = useState<{ title: string; link: string } | null>(null)
+
   return (
     <SectionWrapper id="awards" className="py-20" style={{ background: "var(--section-alt)" }}>
       <div className="container mx-auto px-4">
@@ -27,27 +45,75 @@ export function Awards() {
         </h2>
         <div className="mx-auto mt-3 mb-10 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
-          {certifications.map((cert, index) => (
-            <Card
-              key={index}
-              className="futuristic-card border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_60px_-45px_rgba(94,177,255,0.85)]"
-            >
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-primary/15 p-3 text-primary">
-                    <cert.icon className="h-8 w-8" />
+          {certifications.map((cert, index) => {
+            const card = (
+              <Card
+                className="futuristic-card border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_60px_-45px_rgba(94,177,255,0.85)]"
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="rounded-lg bg-primary/15 p-3 text-primary">
+                      <cert.icon className="h-8 w-8" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="mb-1 text-sm font-semibold uppercase tracking-widest text-primary/80">{cert.year}</div>
+                      <h3 className="text-lg font-bold text-foreground">{cert.title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{cert.description}</p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <div className="mb-1 text-sm font-semibold uppercase tracking-widest text-primary/80">{cert.year}</div>
-                    <h3 className="text-lg font-bold text-foreground">{cert.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{cert.description}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            )
+
+            if (cert.link) {
+              return (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setActiveCert({ title: cert.title, link: cert.link! })}
+                  className="h-full text-left"
+                >
+                  {card}
+                </button>
+              )
+            }
+
+            return (
+              <div key={index} className="h-full">
+                {card}
+              </div>
+            )
+          })}
         </div>
       </div>
+
+      {activeCert && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4" onClick={() => setActiveCert(null)}>
+          <div
+            className="relative w-full max-w-6xl overflow-hidden rounded-2xl bg-background shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-[var(--section-border)] px-4 py-3">
+              <div className="text-sm font-semibold text-foreground">{activeCert.title} (PDF)</div>
+              <button
+                type="button"
+                onClick={() => setActiveCert(null)}
+                className="rounded-md px-3 py-1 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              >
+                Close
+              </button>
+            </div>
+            <div className="h-[80vh] bg-muted sm:h-[85vh]">
+              <iframe
+                src={activeCert.link}
+                title={activeCert.title}
+                className="h-full w-full border-0"
+                allow="fullscreen"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </SectionWrapper>
   )
 }

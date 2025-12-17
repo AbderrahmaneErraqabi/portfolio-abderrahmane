@@ -1,18 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { GraduationCap, Car } from "lucide-react"
+import { Briefcase, Car, LineChart } from "lucide-react"
 
 const experiences = [
   {
-    year: "2025",
-    title: "Joined Esteban Solar Car Team",
-    description: "Wiring & Embedded Systems Division",
+    year: "2025 — Present",
+    title: "Wiring Team — Esteban Solar Car Team",
+    description:
+      "Design and implementation of the electrical network of the Esteban solar car, including harness routing, high and low voltage wiring, and integration of control and safety subsystems.",
     icon: Car,
   },
   {
-    year: "2025",
-    title: "Entered Polytechnique Montréal",
-    description: "Started Electrical Engineering program",
-    icon: GraduationCap,
+    year: "2023 — Present",
+    title: "Sales Manager — SoftMoc",
+    description:
+      "Team supervision and performance monitoring to optimize sales and customer experience. Implemented loyalty-focused initiatives and managed operations in a high-volume retail environment.",
+    icon: LineChart,
+  },
+  {
+    year: "2021 — 2023",
+    title: "Keyholder — Bopied",
+    description:
+      "Responsible for customer service, order management, and inventory operations. Contributed to training new employees and maintaining an efficient and welcoming store environment.",
+    icon: Briefcase,
   },
 ]
 

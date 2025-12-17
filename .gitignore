@@ -25,3 +25,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# auto-generated CV artifacts
+autoCV-2/*.aux
+autoCV-2/*.bbl
+autoCV-2/*.bcf
+autoCV-2/*.blg
+autoCV-2/*.fdb_latexmk
+autoCV-2/*.fls
+autoCV-2/*.log
+autoCV-2/*.out
+autoCV-2/*.run.xml
+autoCV-2/*.pdf
