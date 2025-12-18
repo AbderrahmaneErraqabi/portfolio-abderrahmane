@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
-import nodemailer from "nodemailer"
+// @ts-ignore
+import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
