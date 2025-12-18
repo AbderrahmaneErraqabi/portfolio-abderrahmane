@@ -34,6 +34,20 @@ const certifications = [
     icon: Shield,
     link: "/Passenger%20rail%20industry.pdf",
   },
+    {
+    title: "Integrating AI into IT",
+    description: "Attestation covering the integration of artificial intelligence technologies into IT systems and workflows",
+    year: "2025",
+    icon: Shield,
+    link: "/Attestation%20-%20Integrating%20AI%20into%20IT.pdf",
+  },
+  {
+    title: "Professional Training Program",
+    description: "Attestation confirming completion of a structured technical training program",
+    year: "2025",
+    icon: Award,
+    link: "/Attestation%20-%20Training%20program.pdf",
+  },
 ]
 
 export function Awards() {
