@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server"
-// @ts-ignore
-import nodemailer from "nodemailer";
+import type { Transporter } from "nodemailer";
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const nodemailer: typeof import("nodemailer") = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
