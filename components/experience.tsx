@@ -3,6 +3,13 @@ import { Briefcase, Car, LineChart } from "lucide-react"
 
 const experiences = [
   {
+    year: "2026 — Present",
+    title: "VP External Relations — Google Developers Group Polytechnique Montréal",
+    description:
+      "Lead communications with companies and partners, manage external relationships, coordinate sponsorships, and help organize technical events, workshops, and networking sessions connecting industry professionals with the student developer community.",
+    icon: Briefcase,
+  },  
+  {
     year: "2025 — Present",
     title: "Wiring Team — Esteban Solar Car Team",
     description:
