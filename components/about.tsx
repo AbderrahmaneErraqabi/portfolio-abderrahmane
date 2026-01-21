@@ -10,14 +10,14 @@ export function About() {
           About Me
         </h2>
         <div className="mx-auto mt-3 mb-8 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
-        <Card className="futuristic-card mx-auto max-w-4xl border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl shadow-[0_30px_85px_-60px_rgba(94,177,255,0.8)]">
+        <Card className="futuristic-card mx-auto max-w-5xl border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl shadow-[0_30px_85px_-60px_rgba(94,177,255,0.8)]">
           <CardContent className="p-8">
             <div className="flex flex-col items-center gap-10 md:flex-row">
-              <div className="relative h-[420px] w-full overflow-hidden rounded-xl ring-2 ring-primary/30 transition-transform duration-500 hover:scale-[1.03] md:w-[300px]">
+              <div className="relative h-[480px] w-full overflow-hidden rounded-xl ring-2 ring-primary/30 transition-transform duration-500 hover:scale-[1.03] md:w-[350px]">
                 <img
                   src="/imageabout.png"
                   alt="Abderrahmane Er-Raqabi"
-                  className="h-full w-full scale-[1.55] object-cover"
+                  className="h-full w-full scale-[1.4] object-cover"
                   style={{ objectPosition: "35% 25%" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#040611ee] via-transparent to-transparent" />
@@ -25,14 +25,17 @@ export function About() {
               <div className="flex-1 text-center md:text-left">
                 <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
                   I'm a hands-on, creative electrical engineering student at Polytechnique Montréal with a passion for
-                  AI, embedded systems, circuit design, and automation. I thrive on solving complex technical challenges
+                  AI, embedded systems and circuit design. I thrive on solving complex technical challenges
                   and bringing innovative ideas to life
                 </p>
                 <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
-                  As a member of the <span className="font-semibold text-primary">Esteban Solar Car team</span>, I work
-                  on wiring harness design and embedded systems integration, contributing to sustainable transportation
-                  solutions.
+                  As a member of the <span className="font-semibold text-primary">Esteban Solar Car team</span>, I am involved in wiring harness design and embedded systems integration, helping translate innovative engineering concepts into reliable sustainable transportation systems.
                 </p>
+                <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
+  I currently serve as <span className="font-semibold text-primary">Vice President of External Relations</span> at the
+  <span className="font-semibold text-primary"> Google Developers Group Polytechnique Montréal</span>, where I oversee
+  strategic partnerships and external collaborations, and contribute to the organization of high impact technical
+  events that connect academia with industry.</p>
                 <p className="text-lg leading-relaxed text-muted-foreground">
                   Beyond engineering, I'm deeply interested in finance, investing, and market analysis, exploring the
                   intersection of technology and financial systems.

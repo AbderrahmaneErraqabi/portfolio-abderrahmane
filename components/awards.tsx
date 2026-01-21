@@ -47,7 +47,19 @@ const certifications = [
     year: "2025",
     icon: Award,
     link: "/Attestation%20-%20Training%20program.pdf",
-  },
+  },{
+  title: "Quantum Programming: Grover’s Algorithm",
+  description: "Training on quantum programming concepts with a focus on Grover’s search algorithm",
+  year: "2025",
+  icon: Award,
+  link: "/Certification%20grover.pdf",
+},
+{
+  title: "Battery Safety & IVI Training",
+  description: "Training on battery safety, inspection, IVI procedures, and risk prevention for electrical energy storage systems",
+  year: "2025",
+  icon: Shield,
+}
 ]
 
 export function Awards() {
