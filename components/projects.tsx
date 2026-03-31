@@ -50,6 +50,14 @@ const projects: Project[] = [
     github: "https://github.com/AbderrahmaneErraqabi/RegulAi",
     demo: "/projects/personal-investing-dashboard",
   },
+  {
+    title: "MedBot",
+    description:
+      "Smart Medication Companion — Arduino-based embedded system that automates medication reminders, alerts, and pill dispensing through a compact hardware prototype.",
+    tags: ["Arduino", "Embedded C++", "Electronics", "Hardware Design", "Prototyping"],
+    github: "https://github.com/AnisLalaoui/Starhack-2026",
+    demo: "/projects/medbot",
+  },
 ]
 
 import { SectionWrapper } from "./section-wrapper"

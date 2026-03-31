@@ -28,38 +28,25 @@ const certifications = [
     link: "/Cloud%20Computing%20Security.pdf",
   },
   {
-    title: "Passenger Rail Industry Safety",
-    description: "Certification covering safety practices and standards for passenger rail operations",
-    year: "2025",
-    icon: Shield,
-    link: "/Passenger%20rail%20industry.pdf",
-  },
-    {
-    title: "Integrating AI into IT",
-    description: "Attestation covering the integration of artificial intelligence technologies into IT systems and workflows",
-    year: "2025",
-    icon: Shield,
-    link: "/Attestation%20-%20Integrating%20AI%20into%20IT.pdf",
-  },
-  {
-    title: "Professional Training Program",
-    description: "Attestation confirming completion of a structured technical training program",
+    title: "Introduction to Quantum Programming",
+    description: "Certification in quantum programming fundamentals",
     year: "2025",
     icon: Award,
-    link: "/Attestation%20-%20Training%20program.pdf",
-  },{
-  title: "Quantum Programming: Grover’s Algorithm",
-  description: "Training on quantum programming concepts with a focus on Grover’s search algorithm",
-  year: "2025",
-  icon: Award,
-  link: "/Certification%20grover.pdf",
-},
-{
-  title: "Battery Safety & IVI Training",
-  description: "Training on battery safety, inspection, IVI procedures, and risk prevention for electrical energy storage systems",
-  year: "2025",
-  icon: Shield,
-}
+    link: "/Certification%20grover.pdf",
+  },
+  {
+    title: "Quantum Programming: Grover’s Algorithm",
+    description: "Certification focused on Grover’s search algorithm and practical quantum implementation concepts",
+    year: "2025",
+    icon: Award,
+    link: "/Certification%20grover.pdf",
+  },
+  {
+    title: "Battery Safety & IVI Training",
+    description: "Training on battery safety, inspection, IVI procedures, and risk prevention for electrical energy storage systems",
+    year: "2025",
+    icon: Shield,
+  }
 ]
 
 export function Awards() {
