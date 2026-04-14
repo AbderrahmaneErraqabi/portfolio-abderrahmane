@@ -38,7 +38,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#040611d4]" />
           </div>
           <span className="mb-3 inline-flex items-center justify-center gap-2 rounded-full border border-[var(--section-border)] bg-[var(--section-surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary/90 backdrop-blur">
-            Electrical Engineering · AI · Finance
+            Electrical Engineering · Embedded systems · AI
           </span>
           <h1 className="text-balance text-5xl font-semibold tracking-tight text-transparent bg-clip-text bg-[linear-gradient(120deg,#0f172a,#1d4ed8_55%,#1e293b)] drop-shadow-[0_8px_20px_rgba(29,78,216,0.25)] md:text-7xl">
             Abderrahmane Er-Raqabi

@@ -36,6 +36,14 @@ const projects: Project[] = [
     demo: "/projects/automation-flip-flops",
   },
   {
+    title: "AM Radio Receiver",
+    description:
+      "Designed and built an AM radio receiver using an LC resonant loop antenna, 1N34A germanium diode demodulation, and LM386 audio amplification.",
+    tags: ["Electromagnetics", "Analog Electronics", "LC Resonance", "LM386", "Prototyping"],
+    github: "https://github.com/AbderrahmaneErraqabi/am-radio-receiver",
+    demo: "/projects/am-radio-receiver",
+  },
+  {
     title: "Image Processing & Pixel Manipulation Tool",
     description: "Developed a C++ image processor that performs grayscale conversion, brightness adjustment, and pixel filtering.",
     tags: ["C++", "Image Processing", "Algorithms"],
