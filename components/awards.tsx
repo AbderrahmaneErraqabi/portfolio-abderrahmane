@@ -55,19 +55,17 @@ export function Awards() {
   return (
     <SectionWrapper id="awards" className="py-20" style={{ background: "var(--section-alt)" }}>
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-[linear-gradient(120deg,#0f172a,#1d4ed8_55%,#1e293b)] drop-shadow-[0_8px_18px_rgba(29,78,216,0.22)]">
-          Awards & Certifications
-        </h2>
-        <div className="mx-auto mt-3 mb-10 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
+        <h2 className="text-center section-title">Awards & Certifications</h2>
+        <div className="mx-auto mt-3 mb-10 h-0.5 w-24 rounded-full bg-[linear-gradient(90deg,transparent,rgba(95,176,255,0.22),rgba(139,124,255,0.18),transparent)]" />
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
           {certifications.map((cert, index) => {
             const card = (
               <Card
-                className="futuristic-card border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_60px_-45px_rgba(94,177,255,0.85)]"
+                className="futuristic-card border border-[var(--section-border)] bg-[var(--section-surface)]/92 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_25px_60px_-45px_rgba(95,176,255,0.55)]"
               >
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="rounded-lg bg-primary/15 p-3 text-primary">
+                    <div className="rounded-2xl border border-[var(--section-border)] bg-[rgba(255,255,255,0.05)] p-3 text-primary backdrop-blur-xl">
                       <cert.icon className="h-8 w-8" />
                     </div>
                     <div className="flex-1">
@@ -103,9 +101,9 @@ export function Awards() {
       </div>
 
       {activeCert && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4" onClick={() => setActiveCert(null)}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-md" onClick={() => setActiveCert(null)}>
           <div
-            className="relative w-full max-w-6xl overflow-hidden rounded-2xl bg-background shadow-2xl"
+            className="relative w-full max-w-6xl overflow-hidden rounded-[1.75rem] bg-background shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-[var(--section-border)] px-4 py-3">

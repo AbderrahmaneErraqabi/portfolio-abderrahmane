@@ -5,19 +5,19 @@ import { Code2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
-export function MedBotCodeModal() {
+export function ESP32CodeModal() {
   const [code, setCode] = useState("Loading code...")
 
   useEffect(() => {
     let mounted = true
 
-    fetch("/code_complet.ino")
-      .then(async (res) => {
-        if (!res.ok) {
+    fetch("/camerawebserver.ino")
+      .then(async (response) => {
+        if (!response.ok) {
           throw new Error("Unable to load code")
         }
 
-        const content = await res.text()
+        const content = await response.text()
 
         if (mounted) {
           setCode(content)
@@ -25,7 +25,7 @@ export function MedBotCodeModal() {
       })
       .catch(() => {
         if (mounted) {
-          setCode("Could not load code_complet.ino")
+          setCode("Could not load camerawebserver.ino")
         }
       })
 
@@ -42,12 +42,11 @@ export function MedBotCodeModal() {
           View Arduino Code
         </Button>
       </DialogTrigger>
-
       <DialogContent className="max-h-[92vh] max-w-[96vw] overflow-hidden p-0">
         <DialogHeader className="flex items-center justify-between gap-4 border-b border-primary/20 px-6 py-4 bg-gradient-to-r from-primary/6 to-transparent">
           <div>
-            <h3 className="text-lg font-semibold">code_complet.ino</h3>
-            <p className="mt-1 text-xs text-muted-foreground">MedBot — full Arduino sketch (click and drag to scroll)</p>
+            <h3 className="text-lg font-semibold">camerawebserver.ino</h3>
+            <p className="mt-1 text-xs text-muted-foreground">ESP32 AI Camera Web Server — full sketch</p>
           </div>
         </DialogHeader>
 
@@ -58,7 +57,7 @@ export function MedBotCodeModal() {
               <ul className="mt-3 text-sm text-muted-foreground space-y-2">
                 <li>Language: Arduino C++</li>
                 <li>Size: {code.length} chars</li>
-                <li>Contains: hardware control, timers, IO</li>
+                <li>Contains: WiFi, HTTP, camera streaming</li>
               </ul>
             </aside>
 

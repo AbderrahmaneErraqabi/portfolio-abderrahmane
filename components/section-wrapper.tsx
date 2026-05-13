@@ -33,8 +33,11 @@ export function SectionWrapper({ children, id, className = "", style = {} }: Sec
   }, [])
 
   return (
-    <section ref={sectionRef} id={id} className={`min-h-screen w-full snap-start ${className}`} style={{ ...style }}>
-      {children}
+    <section ref={sectionRef} id={id} className={`relative isolate min-h-screen w-full snap-start overflow-hidden ${className}`} style={{ ...style }}>
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-tech-grid opacity-70" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(95,176,255,0.09),transparent_35%),radial-gradient(circle_at_85%_12%,rgba(139,124,255,0.08),transparent_28%),radial-gradient(circle_at_15%_88%,rgba(116,217,255,0.06),transparent_26%)] opacity-90" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(95,176,255,0.28),rgba(139,124,255,0.22),transparent)]" />
+      <div className="relative z-10">{children}</div>
     </section>
   )
 }

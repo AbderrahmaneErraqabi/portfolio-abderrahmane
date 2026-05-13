@@ -30,14 +30,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" className="dark">
       <head>
         <link rel="icon" href="/tab-icon.svg" type="image/svg+xml" />
         <link rel="icon" href="/tab-photo.png" type="image/png" sizes="512x512" />
         <link rel="icon" href="/tab-photo.png" type="image/png" sizes="192x192" />
         <link rel="apple-touch-icon" href="/tab-photo.png" sizes="180x180" />
       </head>
-      <body className={`${inter.className} ${signature.variable} font-sans antialiased bg-white text-black`}>
+      <body className={`${inter.className} ${signature.variable} font-sans antialiased`}>
         {children}
         <Footer />
         <Analytics />

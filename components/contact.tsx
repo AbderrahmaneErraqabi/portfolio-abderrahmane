@@ -92,17 +92,15 @@ export function Contact() {
   return (
     <SectionWrapper id="contact" className="py-20" style={{ background: "var(--section-alt)" }}>
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-[linear-gradient(120deg,#0f172a,#1d4ed8_55%,#1e293b)] drop-shadow-[0_8px_18px_rgba(29,78,216,0.22)]">
-          Get In Touch
-        </h2>
-        <div className="mx-auto mt-3 mb-10 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
+        <h2 className="text-center section-title">Get In Touch</h2>
+        <div className="mx-auto mt-3 mb-10 h-0.5 w-24 rounded-full bg-[linear-gradient(90deg,transparent,rgba(95,176,255,0.22),rgba(139,124,255,0.18),transparent)]" />
         <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
           Let&apos;s collaborate and innovate together.
         </p>
 
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
           {/* Contact Form */}
-          <Card className="futuristic-card border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl shadow-[0_25px_65px_-55px_rgba(94,177,255,0.85)]">
+          <Card className="futuristic-card border border-[var(--section-border)] bg-[var(--section-surface)]/92 backdrop-blur-xl">
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="field-wrapper">
@@ -115,7 +113,7 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className="border-[var(--section-border)] bg-white/90 focus-visible:border-primary/60 focus-visible:ring-primary/25"
+                    className="border-[var(--section-border)] bg-transparent focus-visible:border-primary/60 focus-visible:ring-primary/25"
                     required
                   />
                 </div>
@@ -130,7 +128,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your.email@example.com"
-                    className="border-[var(--section-border)] bg-white/90 focus-visible:border-primary/60 focus-visible:ring-primary/25"
+                    className="border-[var(--section-border)] bg-transparent focus-visible:border-primary/60 focus-visible:ring-primary/25"
                     required
                   />
                 </div>
@@ -145,14 +143,14 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Your message..."
                     rows={5}
-                    className="border-[var(--section-border)] bg-white/90 focus-visible:border-primary/60 focus-visible:ring-primary/25"
+                    className="border-[var(--section-border)] bg-transparent focus-visible:border-primary/60 focus-visible:ring-primary/25"
                     required
                   />
                 </div>
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[linear-gradient(135deg,#3f8cff,#72d6ff)] text-slate-950 shadow-[0_20px_55px_-30px_rgba(94,177,255,0.85)] hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+                  className="w-full rounded-2xl bg-gradient-to-r from-[#2f69ff] to-[#5fb0ff] text-white font-bold py-3 px-6 shadow-[0_20px_60px_-20px_rgba(47,105,255,0.8)] hover:-translate-y-1.5 hover:shadow-[0_28px_80px_-20px_rgba(47,105,255,0.95)] hover:scale-105 transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-70 disabled:transform-none"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
@@ -179,7 +177,7 @@ export function Contact() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`futuristic-tile flex items-center gap-3 rounded-lg border border-[var(--section-border)] bg-[var(--section-surface)] p-4 text-foreground transition-all duration-300 backdrop-blur ${link.color}`}
+                  className={`futuristic-tile flex items-center gap-3 rounded-2xl border border-[var(--section-border)] bg-[var(--section-surface)]/88 p-4 text-foreground transition-all duration-300 backdrop-blur-xl hover:-translate-y-1 ${link.color}`}
                 >
                   <link.icon className="h-6 w-6 text-primary" />
                   <span className="font-medium">{link.name}</span>

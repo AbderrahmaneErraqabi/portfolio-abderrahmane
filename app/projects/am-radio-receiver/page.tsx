@@ -61,17 +61,20 @@ export const metadata: Metadata = {
 }
 
 export default function AMRadioReceiverProject() {
-  const sectionClass = "mb-16 rounded-3xl border border-(--section-border) bg-(--section-surface) p-10"
-  const sectionTitleClass = "text-3xl font-bold text-(--electric-blue)"
+  const sectionClass = "project-section mb-12 p-10"
+  const sectionTitleClass = "section-title"
 
   return (
-    <main className="min-h-screen bg-(--section-alt) text-foreground">
+    <main className="min-h-screen bg-[var(--page-gradient)] text-foreground selection:bg-primary/20">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
-        <section className="mb-16 flex flex-col gap-6 rounded-3xl border border-(--section-border) bg-(--section-surface) p-10 shadow-[0_25px_65px_-45px_rgba(94,177,255,0.85)] backdrop-blur-xl">
+        <section className="project-hero mb-16 flex flex-col gap-6 p-8 lg:p-10">
           <p className="text-sm uppercase tracking-[0.35em] text-primary/70">Electromagnetics / Analog Electronics / RF</p>
-          <h1 className="mt-4 text-5xl font-bold text-(--electric-blue) lg:text-6xl">
+          <h1 className="mt-4 text-5xl font-bold text-[var(--electric-blue)] lg:text-6xl">
             AM Radio Receiver
           </h1>
+          <div className="mt-4 w-28">
+            <div className="accent-flow rounded-full" />
+          </div>
           <p className="mt-4 max-w-4xl text-lg leading-relaxed text-muted-foreground">
             Design and construction of a functional AM radio receiver using an LC resonant circuit, a 1N34A germanium
             detector diode, and an LM386 audio amplifier. The system receives AM broadcast signals, tunes the desired
@@ -79,26 +82,13 @@ export default function AMRadioReceiverProject() {
           </p>
 
           <div className="mt-3 flex flex-wrap gap-3">
-            <Link
-              href="/#projects"
-              className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-semibold text-primary transition hover:border-primary/60 hover:bg-primary/20"
-            >
+            <Link href="/#projects" className="project-btn project-btn-soft">
               ← Back to projects
             </Link>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-primary/35 bg-primary/5 px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary/70 hover:bg-primary/10 hover:text-primary"
-            >
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="project-btn project-btn-neutral">
               GitHub ↗
             </a>
-            <a
-              href={VIDEO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-primary/50 bg-[linear-gradient(135deg,#3f8cff,#72d6ff)] px-6 py-3 text-sm font-semibold text-slate-950 shadow-[0_18px_55px_-30px_rgba(94,177,255,0.9)] transition hover:-translate-y-0.5"
-            >
+            <a href={VIDEO_URL} target="_blank" rel="noopener noreferrer" className="project-btn project-btn-primary">
               YouTube Demo ↗
             </a>
           </div>
@@ -145,7 +135,7 @@ export default function AMRadioReceiverProject() {
         </section>
 
         <section className="mb-16 grid gap-8 lg:grid-cols-2">
-          <article className="rounded-3xl border border-(--section-border) bg-(--section-surface) p-10">
+          <article className="project-section p-10">
             <h2 className={sectionTitleClass}>Physical Principles</h2>
             <ul className="mt-4 list-disc space-y-2 pl-6 text-muted-foreground marker:text-primary">
               {principles.map((point) => (
@@ -154,7 +144,7 @@ export default function AMRadioReceiverProject() {
             </ul>
           </article>
 
-          <article className="rounded-3xl border border-(--section-border) bg-(--section-surface) p-10">
+          <article className="project-section p-10">
             <h2 className={sectionTitleClass}>Design Logic</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-6 text-muted-foreground marker:text-primary">
               <li>Define the target AM band coverage.</li>
@@ -193,7 +183,7 @@ export default function AMRadioReceiverProject() {
         </section>
 
         <section className="mb-16 grid gap-8 lg:grid-cols-2">
-          <article className="rounded-3xl border border-(--section-border) bg-(--section-surface) p-10">
+          <article className="project-section p-10">
             <h2 className={sectionTitleClass}>Electrical Values</h2>
             <div className="mt-5 overflow-hidden rounded-2xl border border-primary/15">
               <table className="w-full text-left text-sm">
@@ -215,7 +205,7 @@ export default function AMRadioReceiverProject() {
             </div>
           </article>
 
-          <article className="rounded-3xl border border-(--section-border) bg-(--section-surface) p-10">
+          <article className="project-section p-10">
             <h2 className={sectionTitleClass}>Coil Geometry</h2>
             <div className="mt-5 overflow-hidden rounded-2xl border border-primary/15">
               <table className="w-full text-left text-sm">
@@ -239,7 +229,7 @@ export default function AMRadioReceiverProject() {
         </section>
 
         <section className="mb-16 grid gap-8 lg:grid-cols-2">
-          <article className="rounded-3xl border border-(--section-border) bg-(--section-surface) p-10">
+          <article className="project-section p-10">
             <h2 className={sectionTitleClass}>Build Method</h2>
             <ul className="mt-4 list-disc space-y-2 pl-6 text-muted-foreground marker:text-primary">
               {buildNotes.map((point) => (
@@ -248,7 +238,7 @@ export default function AMRadioReceiverProject() {
             </ul>
           </article>
 
-          <article className="rounded-3xl border border-(--section-border) bg-(--section-surface) p-10">
+          <article className="project-section p-10">
             <h2 className={sectionTitleClass}>Testing and Tuning Notes</h2>
             <ul className="mt-4 list-disc space-y-2 pl-6 text-muted-foreground marker:text-primary">
               {testNotes.map((point) => (

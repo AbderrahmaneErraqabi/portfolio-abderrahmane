@@ -20,14 +20,6 @@ const projects: Project[] = [
     demo: "https://esteban.polymtl.ca",
   },
   {
-    title: "Mini-SPICE DC Circuit Solver",
-    description:
-      "Built a C++ circuit analysis tool that solves DC circuits using nodal analysis and matrix operations.",
-    tags: ["C++", "Circuit Analysis", "Algorithms"],
-    github: "https://github.com/AbderrahmaneErraqabi/mini-spice-dc",
-    demo: "https://github.com/AbderrahmaneErraqabi/mini-spice-dc",
-  },
-  {
     title: "ELE1001 BCD Keypad Display",
     description:
       "Embedded Arduino system that reads a 4×4 keypad and drives a two-digit BCD display, with validation and synchronization signals.",
@@ -66,6 +58,14 @@ const projects: Project[] = [
     github: "https://github.com/AnisLalaoui/Starhack-2026",
     demo: "/projects/medbot",
   },
+  {
+    title: "ESP32 AI Camera Web Server",
+    description:
+      "An embedded computer vision project combining an ESP32 camera stream, a local web server, and an Edge Impulse image classification model.",
+    tags: ["ESP32", "Edge Impulse", "Computer Vision", "Arduino", "Python"],
+    github: "https://github.com/AbderrahmaneErraqabi/ESP32-AI-Camera-WebServer",
+    demo: "/projects/esp32-ai-camera-web-server",
+  },
 ]
 
 import { SectionWrapper } from "./section-wrapper"
@@ -74,43 +74,43 @@ export function Projects() {
   return (
     <SectionWrapper id="projects" className="py-20" style={{ background: "var(--section-alt)" }}>
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-4xl font-bold text-[var(--electric-blue)]">Projects</h2>
-        <div className="mx-auto mt-3 mb-8 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
+        <h2 className="text-center section-title">Projects</h2>
+        <div className="mx-auto mt-4 mb-8 h-0.5 w-16 bg-[linear-gradient(90deg,transparent,rgba(95,176,255,0.12),transparent)]" />
         <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
           A collection of my engineering and software projects, showcasing my skills in embedded systems, circuit
           design, and software development.
         </p>
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-[92rem] grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-12">
           {projects.map((project, index) => {
+            const sizeClass = index < 2 ? 'xl:col-span-6' : 'xl:col-span-6'
             const isInternal = project.demo.startsWith("/") && !project.demo.startsWith("//")
 
             return (
               <Card
                 key={index}
-                className="futuristic-card group border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_65px_-45px_rgba(94,177,255,0.85)]"
+                className={`group relative min-h-[20.5rem] transition-all duration-300 ${sizeClass}`}
               >
+                <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(95,176,255,0.34),rgba(139,124,255,0.28),transparent)] opacity-70" />
                 <CardHeader>
-                  <CardTitle className="transition-colors group-hover:text-primary">{project.title}</CardTitle>
+                  <div className="mb-2 inline-flex w-fit items-center rounded-full border border-[var(--section-border)] bg-[rgba(255,255,255,0.05)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <CardTitle className="transition-colors duration-300 group-hover:text-primary">{project.title}</CardTitle>
                   <CardDescription className="leading-relaxed text-muted-foreground">{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="mb-4 flex flex-wrap gap-2">
+                  <div className="mb-5 flex flex-wrap gap-2">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                        className="rounded-full border border-[var(--section-border)] bg-[rgba(255,255,255,0.04)] px-3 py-1 text-[11px] font-medium text-muted-foreground transition-all duration-300 group-hover:border-primary/25 group-hover:text-foreground"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                   <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 gap-2 border-[var(--section-border)] bg-transparent text-foreground hover:border-primary/50 hover:bg-primary/10"
-                      asChild
-                    >
+                    <Button size="sm" variant="outline" className="flex-1 gap-2 rounded-xl" asChild>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="h-4 w-4" />
                         GitHub
@@ -118,7 +118,7 @@ export function Projects() {
                     </Button>
                     <Button
                       size="sm"
-                      className="flex-1 gap-2 bg-[linear-gradient(135deg,#3f8cff,#72d6ff)] text-slate-950 shadow-[0_18px_55px_-30px_rgba(94,177,255,0.9)] hover:-translate-y-0.5"
+                      className="flex-1 gap-2 rounded-xl border border-primary/45 bg-primary/14 text-primary shadow-[0_12px_28px_-24px_rgba(94,177,255,0.65)] transition duration-300 hover:-translate-y-0.5 hover:bg-primary/22 hover:border-primary/60"
                       asChild
                     >
                       <a
@@ -126,7 +126,7 @@ export function Projects() {
                         target={isInternal ? undefined : "_blank"}
                         rel={isInternal ? undefined : "noopener noreferrer"}
                       >
-                        <ExternalLink className="h-4 w-4" />
+                        <ExternalLink className="h-4 w-4 drop-shadow-sm" />
                         Details
                       </a>
                     </Button>

@@ -29,8 +29,7 @@ export function ImageZoomable() {
 
       {isOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="relative w-[95vw] max-w-[1400px] h-[85vh] max-h-[95vh] bg-background rounded-lg border border-primary/20 overflow-hidden flex flex-col">
-            {/* Close button */}
+          <div className="relative w-[95vw] max-w-[1400px] h-[85vh] max-h-[95vh] bg-[var(--section-surface)] rounded-2xl border border-primary/20 overflow-hidden flex flex-col shadow-[var(--shadow-gloss)]">
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 z-50 rounded-md bg-black/60 text-white p-2 hover:bg-black/70"
@@ -38,13 +37,12 @@ export function ImageZoomable() {
               <X className="w-6 h-6" />
             </button>
 
-            {/* Title */}
-            <div className="p-4 border-b border-primary/20">
+            <div className="p-6 border-b border-primary/20 bg-gradient-to-r from-primary/6 to-transparent">
               <h2 className="text-xl font-semibold">Circuit Breadboard Layout</h2>
+              <p className="mt-1 text-sm text-muted-foreground">Click & drag, zoom with wheel, press Esc to close.</p>
             </div>
 
-            {/* Zoom controls */}
-            <div className="absolute top-20 right-4 z-50 flex gap-2">
+            <div className="absolute top-20 right-6 z-50 flex gap-2">
               <button
                 onClick={() => setScale((s) => Math.max(0.2, +(s - 0.1).toFixed(2)))}
                 className="rounded-md bg-black/60 text-white px-3 py-2 text-sm hover:bg-black/70"
@@ -59,7 +57,6 @@ export function ImageZoomable() {
               >+</button>
             </div>
 
-            {/* Image container */}
             <div
               ref={containerRef}
               onWheel={(e) => {
@@ -70,7 +67,7 @@ export function ImageZoomable() {
                   return Math.min(4, Math.max(0.2, next))
                 })
               }}
-              className="relative w-full h-full overflow-auto bg-black/20 flex items-center justify-center p-6"
+              className="relative w-full h-full overflow-auto flex items-center justify-center p-6"
             >
               <div style={{ transform: `scale(${scale})`, transformOrigin: 'center', transition: 'transform 120ms ease' }}>
                 <Image
@@ -78,7 +75,7 @@ export function ImageZoomable() {
                   alt="ELE1001 circuit breadboard layout"
                   width={1280}
                   height={800}
-                  className="w-auto object-contain rounded-lg"
+                  className="w-auto object-contain rounded-lg shadow-lg"
                   priority
                 />
               </div>

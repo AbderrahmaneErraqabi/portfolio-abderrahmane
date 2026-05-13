@@ -1,7 +1,7 @@
+import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { MedBotCodeModal } from "./code-modal"
-import { ZoomableImageModal } from "./image-modal"
 
 const GITHUB_URL = "https://github.com/AnisLalaoui/Starhack-2026"
 const DEMO_URL = "https://youtube.com/shorts/HksG5nQMoSc?feature=share"
@@ -82,18 +82,22 @@ export const metadata: Metadata = {
     "Arduino-based smart medication assistance prototype with reminders, progressive alerts, user confirmation, and automatic pill dispensing.",
 }
 
+export const dynamic = "force-dynamic"
+
 export default function MedBotProject() {
-  const sectionClass =
-    "rounded-3xl border border-primary/25 bg-(--section-surface)/95 p-6 backdrop-blur-xl ring-1 ring-primary/10 shadow-[0_22px_65px_-45px_rgba(94,177,255,0.7)] sm:p-8"
-  const sectionTitleClass = "text-2xl font-semibold tracking-tight text-(--electric-blue)"
+  const sectionClass = "project-section mb-12 p-10"
+  const sectionTitleClass = "section-title"
 
   return (
-    <main className="min-h-screen bg-(--section-alt) text-foreground selection:bg-primary/30">
+    <main className="min-h-screen bg-[var(--page-gradient)] text-foreground selection:bg-primary/20">
       <div className="mx-auto max-w-6xl space-y-10 px-6 py-14 lg:px-8 lg:py-16">
-        <section className="mb-10 rounded-3xl border border-primary/35 bg-(--section-surface) p-8 shadow-[0_30px_70px_-45px_rgba(94,177,255,0.95)] backdrop-blur-xl ring-1 ring-primary/15 lg:p-10">
-          <p className="text-sm uppercase tracking-[0.35em] text-primary/70">Embedded Systems / Arduino / Hardware</p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-(--electric-blue) sm:text-4xl lg:text-6xl">MedBot | Smart Medication Companion</h1>
-          <div className="mt-4 h-0.5 w-28 rounded-full bg-linear-to-r from-primary/90 via-[#72d6ff] to-transparent" />
+        <section className="project-hero mb-10 p-8 lg:p-10">
+          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Embedded Systems / Arduino / Hardware</p>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-[var(--electric-blue)] sm:text-4xl lg:text-6xl">MedBot | Smart Medication Companion</h1>
+          <div className="mt-4 w-28">
+            <div className="accent-flow rounded-full" />
+          </div>
+          <div className="mt-4 h-0.5 w-16 bg-primary/20" />
           <p className="mt-5 max-w-4xl text-lg leading-relaxed text-muted-foreground">
             MedBot is an embedded smart medication assistance system designed to help users take their pills on time,
             reduce missed doses, and simplify daily medication management through reminders, alerts, and automatic
@@ -101,15 +105,15 @@ export default function MedBotProject() {
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wide text-primary/90">
-            <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1">Offline-first</span>
-            <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1">Embedded intelligence</span>
-            <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1">Arduino prototype</span>
+            <span className="project-chip rounded-full px-3 py-1">Offline-first</span>
+            <span className="project-chip rounded-full px-3 py-1">Embedded intelligence</span>
+            <span className="project-chip rounded-full px-3 py-1">Arduino prototype</span>
           </div>
 
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
               href="/#projects"
-              className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary transition hover:border-primary/60 hover:bg-primary/20"
+              className="project-btn project-btn-soft"
             >
               ← Back to projects
             </Link>
@@ -117,7 +121,7 @@ export default function MedBotProject() {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-primary/35 bg-primary/5 px-5 py-2 text-sm font-semibold text-foreground transition hover:border-primary/70 hover:bg-primary/10 hover:text-primary"
+              className="project-btn project-btn-neutral"
             >
               GitHub ↗
             </a>
@@ -125,7 +129,7 @@ export default function MedBotProject() {
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-primary/50 bg-linear-to-r from-primary/80 to-[#72d6ff] px-5 py-2 text-sm font-semibold text-slate-950 shadow-[0_18px_55px_-30px_rgba(94,177,255,0.9)] transition hover:-translate-y-0.5"
+              className="project-btn project-btn-primary"
             >
               Demo Video ↗
             </a>
@@ -173,28 +177,32 @@ export default function MedBotProject() {
 
         <section className={sectionClass}>
           <h2 className={sectionTitleClass}>Prototype</h2>
-          <p className="mt-3 text-muted-foreground">Click the image to open, zoom in/out, and inspect details.</p>
-          <div className="mt-6 mx-auto max-w-xl">
-            <ZoomableImageModal
+          <p className="mt-3 text-muted-foreground">Static preview of the physical prototype.</p>
+          <figure className="mt-6 mx-auto max-w-xl overflow-hidden rounded-2xl border border-primary/20 bg-primary/5 shadow-[var(--shadow-sm)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)]">
+            <Image
               src="/medbot-prototype.png"
               alt="MedBot physical prototype"
-              title="MedBot Prototype"
-              caption="MedBot physical prototype"
+              width={1400}
+              height={900}
+              className="h-auto w-full object-cover"
             />
-          </div>
+            <figcaption className="p-4 text-center text-sm text-muted-foreground">MedBot physical prototype</figcaption>
+          </figure>
         </section>
 
         <section className={sectionClass}>
           <h2 className={sectionTitleClass}>Circuit Design</h2>
-          <p className="mt-3 text-muted-foreground">Click the image to open, zoom in/out, and inspect wiring like a document viewer.</p>
-          <div className="mt-6">
-            <ZoomableImageModal
+          <p className="mt-3 text-muted-foreground">Static preview of the wiring and circuit layout.</p>
+          <figure className="mt-6 overflow-hidden rounded-2xl border border-primary/20 bg-primary/5 shadow-[var(--shadow-sm)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)]">
+            <Image
               src="/medbot-circuit.png"
               alt="MedBot circuit design"
-              title="MedBot Circuit Design"
-              caption="Hardware circuit design used in MedBot"
+              width={1400}
+              height={900}
+              className="h-auto w-full object-cover"
             />
-          </div>
+            <figcaption className="p-4 text-center text-sm text-muted-foreground">Hardware circuit design used in MedBot</figcaption>
+          </figure>
         </section>
 
         <section className="grid gap-8 lg:grid-cols-2">

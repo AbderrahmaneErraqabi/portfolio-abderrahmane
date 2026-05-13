@@ -59,7 +59,7 @@ export function ZoomableImageModal({ src, alt, title, caption }: ZoomableImageMo
 
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={() => setIsOpen(false)}>
-          <div className="relative flex h-[90vh] w-[96vw] max-w-screen-2xl flex-col overflow-hidden rounded-2xl border border-primary/20 bg-background" onClick={(e) => e.stopPropagation()}>
+          <div className="relative flex h-[90vh] w-[96vw] max-w-screen-2xl flex-col overflow-hidden rounded-2xl border border-primary/20 bg-[var(--section-surface)] shadow-[var(--shadow-gloss)]" onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
@@ -69,12 +69,16 @@ export function ZoomableImageModal({ src, alt, title, caption }: ZoomableImageMo
               <X className="h-6 w-6" />
             </button>
 
-            <div className="border-b border-primary/20 p-4 pr-24">
-              <h3 className="text-lg font-semibold text-foreground">{title}</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Use mouse wheel to zoom and drag scrollbars to pan. Press Esc to close.</p>
+            <div className="border-b border-primary/20 p-6 pr-24 bg-gradient-to-r from-primary/6 to-transparent">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+                  <p className="mt-1 text-xs text-muted-foreground">Zoom, pan, and inspect the prototype in detail.</p>
+                </div>
+              </div>
             </div>
 
-            <div className="absolute right-4 top-16 z-50 flex gap-2">
+            <div className="absolute right-6 top-20 z-50 flex gap-2">
               <button
                 type="button"
                 onClick={() => setScale((s) => Math.max(0.2, +(s - 0.1).toFixed(2)))}
@@ -109,10 +113,10 @@ export function ZoomableImageModal({ src, alt, title, caption }: ZoomableImageMo
                   return Math.min(5, Math.max(0.2, next))
                 })
               }}
-              className="flex h-full w-full items-center justify-center overflow-auto bg-black/20 p-6"
+              className="flex h-full w-full items-center justify-center overflow-auto p-6"
             >
               <div style={{ transform: `scale(${scale})`, transformOrigin: "center", transition: "transform 120ms ease" }}>
-                <Image src={src} alt={alt} width={1800} height={1200} className="h-auto w-auto max-w-none rounded-lg" priority />
+                <Image src={src} alt={alt} width={1800} height={1200} className="h-auto w-auto max-w-none rounded-lg shadow-lg" priority />
               </div>
             </div>
           </div>

@@ -30,27 +30,23 @@ export function Skills() {
   return (
     <SectionWrapper id="skills" className="py-20" style={{ background: "var(--section-alt)" }}>
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-4xl font-bold text-[var(--electric-blue)]">Skills & Expertise</h2>
-        <div className="mx-auto mt-3 mb-10 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2">
+        <h2 className="text-center section-title">Skills & Expertise</h2>
+        <div className="mx-auto mt-4 mb-10 h-0.5 w-24 bg-[linear-gradient(90deg,transparent,rgba(95,176,255,0.22),rgba(139,124,255,0.2),transparent)]" />
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-12">
           {skillCategories.map((category, index) => (
-            <Card
-              key={index}
-              className="futuristic-card animate-fade-in-up border border-[var(--section-border)] bg-[var(--section-surface)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_25px_65px_-50px_rgba(94,177,255,0.85)]"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
+            <Card key={index} className={index === 0 || index === 2 ? "lg:col-span-7" : "lg:col-span-5"}>
               <CardContent className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="rounded-lg bg-primary/15 p-2 text-primary">
-                    <category.icon className="h-6 w-6" />
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="rounded-xl border border-[var(--section-border)] bg-[rgba(255,255,255,0.05)] p-2 text-primary">
+                    <category.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold">{category.title}</h3>
+                  <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2.5">
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="rounded-md border border-primary/20 bg-primary/5 px-3 py-1.5 text-sm font-medium text-primary transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
+                      className="inline-flex items-center rounded-full border border-[var(--section-border)] bg-[rgba(255,255,255,0.06)] px-3.5 py-1.5 text-sm font-medium tracking-wide text-foreground/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:bg-[rgba(95,176,255,0.08)] hover:text-foreground"
                     >
                       {skill}
                     </span>
