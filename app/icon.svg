@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" fill="#15110b" />
-  <text x="256" y="214" text-anchor="middle" fill="#9fc3a2" font-family="Consolas, 'Courier New', monospace" font-size="112" font-weight="700">&lt;</text>
-  <text x="256" y="300" text-anchor="middle" fill="#e9e0cc" font-family="Consolas, 'Courier New', monospace" font-size="112" font-weight="700">ae</text>
-  <text x="256" y="386" text-anchor="middle" fill="#c69ad9" font-family="Consolas, 'Courier New', monospace" font-size="112" font-weight="700">/&gt;</text>
-</svg>
