@@ -36,13 +36,6 @@ const projects: Project[] = [
     demo: "/projects/am-radio-receiver",
   },
   {
-    title: "Image Processing & Pixel Manipulation Tool",
-    description: "Developed a C++ image processor that performs grayscale conversion, brightness adjustment, and pixel filtering.",
-    tags: ["C++", "Image Processing", "Algorithms"],
-    github: "https://github.com/AbderrahmaneErraqabi/Image-processor",
-    demo: "https://github.com/AbderrahmaneErraqabi/Image-processor",
-  },
-  {
     title: "RegulAI – Portfolio Intelligence",
     description:
       "PolyFinances Datathon 2025 build that ingests regulations, enriches them with Yahoo Finance data, and translates the impact into portfolio-ready insights.",

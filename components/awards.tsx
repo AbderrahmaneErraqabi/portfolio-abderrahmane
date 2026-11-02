@@ -11,35 +11,35 @@ const certifications = [
     description: "Training on the safe use and maintenance of respiratory protective equipment",
     year: "2025",
     icon: Award,
-    link: "/PolyMTL%20-%20Protections%20respiratoires%20-%20Abderrahmane%20Er-Raqabi%20-%202025-09-24.pdf",
+    link: "/certificate-previews/respiratory-protection.png",
   },
   {
     title: "WHMIS 2015",
     description: "Workplace safety and chemical handling training",
     year: "2025",
     icon: Shield,
-    link: "/Attestations%20-%20SIMDUT%202015.pdf",
+    link: "/certificate-previews/whmis-2015.png",
   },
   {
     title: "Cloud Computing Security",
     description: "Certification focused on securing cloud environments and mitigating modern threats",
     year: "2025",
     icon: Shield,
-    link: "/Cloud%20Computing%20Security.pdf",
+    link: "/certificate-previews/cloud-computing-security.png",
   },
   {
     title: "Introduction to Quantum Programming",
     description: "Certification in quantum programming fundamentals",
     year: "2025",
     icon: Award,
-    link: "/Certification%20grover.pdf",
+    link: "/certificate-previews/grover.png",
   },
   {
     title: "Quantum Programming: Grover’s Algorithm",
     description: "Certification focused on Grover’s search algorithm and practical quantum implementation concepts",
     year: "2025",
     icon: Award,
-    link: "/Certification%20grover.pdf",
+    link: "/certificate-previews/grover.png",
   },
   {
     title: "Battery Safety & IVI Training",
@@ -107,7 +107,7 @@ export function Awards() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-[var(--section-border)] px-4 py-3">
-              <div className="text-sm font-semibold text-foreground">{activeCert.title} (PDF)</div>
+              <div className="text-sm font-semibold text-foreground">{activeCert.title} preview</div>
               <button
                 type="button"
                 onClick={() => setActiveCert(null)}
@@ -117,12 +117,7 @@ export function Awards() {
               </button>
             </div>
             <div className="h-[80vh] bg-muted sm:h-[85vh]">
-              <iframe
-                src={activeCert.link}
-                title={activeCert.title}
-                className="h-full w-full border-0"
-                allow="fullscreen"
-              />
+              <img src={activeCert.link} alt={`${activeCert.title} preview`} className="h-full w-full object-contain" />
             </div>
           </div>
         </div>
