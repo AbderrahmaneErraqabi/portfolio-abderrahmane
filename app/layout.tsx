@@ -14,13 +14,9 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Abderrahmane Er-Raqabi, Electrical Engineering student at Polytechnique Montréal specializing in embedded systems, AI, and circuit design.",
   icons: {
-    icon: [
-      { url: "/tab-icon.svg", type: "image/svg+xml" },
-      { url: "/tab-photo.png", type: "image/png", sizes: "512x512" },
-      { url: "/tab-photo.png", type: "image/png", sizes: "192x192" },
-    ],
-    shortcut: [{ url: "/tab-icon.svg" }],
-    apple: [{ url: "/tab-photo.png", sizes: "180x180", type: "image/png" }],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: [{ url: "/icon.svg" }],
+    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
 }
 
@@ -32,10 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" href="/tab-icon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/tab-photo.png" type="image/png" sizes="512x512" />
-        <link rel="icon" href="/tab-photo.png" type="image/png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="/tab-photo.png" sizes="180x180" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon.svg" type="image/svg+xml" />
       </head>
       <body className={`${bricolage.variable} ${GeistSans.variable} ${GeistMono.variable} font-sans`}>
         <WaterBackground />
