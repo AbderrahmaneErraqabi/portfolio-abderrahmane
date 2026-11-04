@@ -60,7 +60,6 @@ function Intro({ onSkip, onStart }: { onSkip: () => void; onStart: () => void })
   const postLines = ["memory controller", "CMOS configuration", "PCI devices", "USB controller", "video initialization"]
   const resources = ["display font", "body font", "portrait", "project index", "navigation", "contact links"]
   return <div className="bios bios-screen" role="dialog" aria-label="Portfolio introduction">
-    <button className="bios-skip" onClick={onSkip}>Skip intro <span>Esc</span></button>
     <div className="bios-console">
       <div className="bios-content">
       {phase !== "black" && phase !== "ready" && <><div className="bios-header"><div><p>Er-Raqabi</p><p>/ Abderrahmane</p></div><div><p>System BIOS</p><p>Personal Computer Startup</p></div></div><p className="bios-description">PC-compatible system initialization.</p><p>Power-On Self-Test (POST)</p><p className="bios-muted">Memory initialization complete.</p></>}
